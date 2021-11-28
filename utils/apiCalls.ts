@@ -1,9 +1,11 @@
+import { PostObject } from "../types"
+
 export const getData = async () => {
   let response = await fetch(`https://leet-cards.herokuapp.com/cards`)
   return checkForError(response)
 }
 
-export const postData = async (postObject) => {
+export const postData = async (postObject: PostObject) => {
   let response = await fetch(`https://leet-cards.herokuapp.com/cards`, {
     method: 'POST',
     body: JSON.stringify(postObject),
@@ -23,9 +25,9 @@ export const postData = async (postObject) => {
 //   })
 // }
 
-const checkForError = async (response) => {
+const checkForError = async (response: Response) => {
   if (!response.ok) {
-    throw new Error(response)
+    throw new Error(response.status.toString())
   } else {
     let data = await response.json()
     return data
