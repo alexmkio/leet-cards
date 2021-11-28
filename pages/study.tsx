@@ -7,7 +7,7 @@ import Link from 'next/link'
 import Card from '../components/Card'
 
 export const getStaticProps = async () => {
-  const cards: CardType[] = await getData('https://leet-cards.herokuapp.com/cards')
+  const cards: CardType[] = await getData()
 
   if (!cards) {
     return {
@@ -36,6 +36,7 @@ function Study({ cards }: InferGetStaticPropsType<typeof getStaticProps>) {
       </Link>
     )
   })
+
   return (
     <>
       <Head>
