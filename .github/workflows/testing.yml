@@ -1,4 +1,4 @@
-name: Development
+name: End to end testing
 
 on:
   pull_request:
@@ -22,16 +22,3 @@ jobs:
       uses: cypress-io/github-action@v2
       with:
           start: npm start
-          
-    - name: Checkout 🛎️
-      uses: actions/checkout@v2
-
-    - name: Does Build Succeed? 🔧 
-      run: |
-        npm install
-        npm run build
-    - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@4.1.7
-      with:
-        branch: development_build
-        folder: build
