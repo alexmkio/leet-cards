@@ -46,7 +46,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const id = params?.id
     const card: CardType = await getData(`cards/${id}`)
     return { props: { card } }
-  } catch (error: unknown) {
+  } catch (error) {
     // https://www.typescriptlang.org/tsconfig#useUnknownInCatchVariables
     // remove useUnknownInCatchVariables: false in tsconfig to try and solve this
     // if (error instanceof Error) {
