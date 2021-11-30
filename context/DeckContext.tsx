@@ -29,7 +29,7 @@ export function DeckProvider({ children }: Props) {
 
   const fetchDeck = async () => {
     try {
-      let fetched = await getData()
+      let fetched = await getData('cards')
       setDeck(fetched)
     } catch (error) {
       //shore this up

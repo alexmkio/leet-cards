@@ -1,7 +1,7 @@
 import { PostObject } from "../types"
 
-export const getData = async () => {
-  let response = await fetch(`https://leet-cards.herokuapp.com/cards`)
+export const getData = async (endpoint: String) => {
+  let response = await fetch(`https://leet-cards.herokuapp.com/${endpoint}`)
   return checkForError(response)
 }
 
