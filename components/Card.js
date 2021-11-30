@@ -1,4 +1,7 @@
+import { useDeck } from "../context/DeckContext";
+
 function Card({ card }) {
+  const { addCard } = useDeck();
   return (
     <article>
       <dl>
@@ -14,6 +17,7 @@ function Card({ card }) {
         <dt>Title:</dt>
         <dd>{card.categories}</dd>
       </dl>
+      <button onClick={() => addCard(card)}>Add Card</button>
     </article>
   )
 }
