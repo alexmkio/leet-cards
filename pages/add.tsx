@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useState } from 'react';
 import { postData } from '../utils/apiCalls';
+import { useDeck } from "../context/DeckContext";
 
 const Add: NextPage = () => {
   const [question, setQuestion] = useState<string>('');
@@ -9,6 +10,7 @@ const Add: NextPage = () => {
   const [stack, setStack] = useState<string>('');
   const [categories, setCategories] = useState<string[]>([]);
   const [category, setCategory] = useState<string>('');
+  const { addCard } = useDeck();
 
   const addCategory = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
@@ -24,6 +26,10 @@ const Add: NextPage = () => {
       side: stack,
       categories: categories
     })
+    //shore up conditional logic here: should be = if success (not error) do this
+    if (response.id) {
+      addCard(response)
+    }
     setQuestion('')
     setAnswer('')
     setStack('')
@@ -74,10 +80,10 @@ const Add: NextPage = () => {
             type="text"
             id="category"
             value={category}
-            onChange={(event)=> setCategory(event.target.value)}
+            onChange={event => setCategory(event.target.value)}
           />
           {categories}
-          <button onClick={event=> addCategory(event)}>Add Category</button>
+          <button onClick={event => addCategory(event)}>Add Category</button>
           
           <button type="submit">Submit</button>
         </form>

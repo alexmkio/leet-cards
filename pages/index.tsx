@@ -22,9 +22,19 @@ const Landing: NextPage = () => {
           </a>
         </Link>
 
+        <br></br><br></br>
+
         <Link href='/add'>
           <a>
             <button>Add</button>
+          </a>
+        </Link>
+
+        <br></br><br></br>
+
+        <Link href='/test'>
+          <a>
+            <button>Test</button>
           </a>
         </Link>
       </main>

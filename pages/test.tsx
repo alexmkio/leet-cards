@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useDeck } from "../context/DeckContext";
 import Card from '../components/Card'
 

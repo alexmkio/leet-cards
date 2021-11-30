@@ -39,8 +39,7 @@ export function DeckProvider({ children }: Props) {
   }, [])
 
   const addCard = (card: CardType) => {
-    console.log('HEYYYYYYYYYYY', card)
-    // setDeck()
+    setDeck([...deck, card])
   };
 
   const value = {
