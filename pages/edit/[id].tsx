@@ -9,6 +9,12 @@ type Props = {
 }
 
 export default function EditPost({ card, errors }: Props) {
+  const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
+  const [stack, setStack] = useState('');
+  const [categories, setCategories] = useState([]);
+  const [category, setCategory] = useState<string>('');
+
   if (errors) {
     return (
       <h2>
@@ -16,12 +22,6 @@ export default function EditPost({ card, errors }: Props) {
       </h2>
     )
   } else if (card) {
-    const [question, setQuestion] = useState(card.question);
-    const [answer, setAnswer] = useState(card.answer);
-    const [stack, setStack] = useState(card.side);
-    const [categories, setCategories] = useState(card.categories);
-    const [category, setCategory] = useState<string>('');
-
     return (
       <>
         {card.question}
@@ -47,11 +47,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const card: CardType = await getData(`cards/${id}`)
     return { props: { card } }
   } catch (error) {
-    // https://www.typescriptlang.org/tsconfig#useUnknownInCatchVariables
-    // remove useUnknownInCatchVariables: false in tsconfig to try and solve this
-    // if (error instanceof Error) {
-    //   return { props: { errors: error.message } }
-    // }  
-    return { props: { errors: error.message } }
+    if (error instanceof Error) {
+      return { props: { errors: error.message } }
+    }
   }
 }
