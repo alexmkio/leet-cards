@@ -29,14 +29,6 @@ const Landing: NextPage = () => {
             <button>Add</button>
           </a>
         </Link>
-
-        <br></br><br></br>
-
-        <Link href='/test'>
-          <a>
-            <button>Test</button>
-          </a>
-        </Link>
       </main>
     </>
   )

@@ -1,5 +1,6 @@
 import { useDeck } from "../context/DeckContext";
 import { deleteData } from '../utils/apiCalls';
+import Link from 'next/link'
 
 function Card({ card }) {
   const { removeCard } = useDeck();
@@ -28,8 +29,20 @@ function Card({ card }) {
         <dt>Title:</dt>
         <dd>{card.categories}</dd>
       </dl>
-      <button onClick={() => deleteCard(card)}>Delete</button>
 
+      <br></br>
+      <button onClick={() => deleteCard(card)}>Delete</button>
+      <br></br>
+
+      <Link
+        href={{
+          pathname: `/edit/${card.id}`,
+        }}
+      >
+        <a>
+          <button>Edit Card #{card.id}</button>
+        </a>
+      </Link>
       <br></br><br></br>
     </article>
   )
