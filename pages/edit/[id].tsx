@@ -31,7 +31,6 @@ export default function EditPost({ card, errors }: Props) {
       </>
     )
   }
-
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -47,7 +46,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const id = params?.id
     const card: CardType = await getData(`cards/${id}`)
     return { props: { card } }
-  } catch (error) {
+  } catch (error: unknown) {
+    // https://www.typescriptlang.org/tsconfig#useUnknownInCatchVariables
+    // remove useUnknownInCatchVariables: false in tsconfig to try and solve this
+    // if (error instanceof Error) {
+    //   return { props: { errors: error.message } }
+    // }  
     return { props: { errors: error.message } }
   }
 }
