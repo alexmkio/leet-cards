@@ -5,11 +5,13 @@ import { getData } from '../utils/apiCalls'
 type deckContextType = {
   deck: CardType[];
   addCard: (card: CardType) => void;
+  removeCard: (card: CardType) => void;
 };
 
 const deckContextDefaultValues: deckContextType = {
   deck: [],
   addCard: (card) => {},
+  removeCard: (card) => {},
 };
 
 const DeckContext = createContext<deckContextType>(deckContextDefaultValues);
@@ -30,6 +32,7 @@ export function DeckProvider({ children }: Props) {
       let fetched = await getData()
       setDeck(fetched)
     } catch (error) {
+      //shore this up
       console.log(error)
     }
   }
@@ -42,9 +45,17 @@ export function DeckProvider({ children }: Props) {
     setDeck([...deck, card])
   };
 
+  const removeCard = (card: CardType) => {
+    let ind = deck.findIndex(currentCard => currentCard.id === card.id)
+    let currentDeck = deck
+    currentDeck.splice(ind, 1)
+    setDeck([...currentDeck])
+  };
+
   const value = {
     deck,
     addCard,
+    removeCard,
   };
 
   return (

@@ -16,14 +16,14 @@ export const postData = async (postObject: PostObject) => {
   return checkForError(response)
 }
 
-// export const deleteApiData = (id) => {
-//   return fetch(`https://leet-cards.herokuapp.com/cards/${id}`, {
-//     method: 'DELETE',
-//     headers: {
-//       'Content-type': 'application/json'
-//     }
-//   })
-// }
+export const deleteData = (id: Number) => {
+  return fetch(`https://leet-cards.herokuapp.com/cards/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json'
+    }
+  })
+}
 
 const checkForError = async (response: Response) => {
   if (!response.ok) {

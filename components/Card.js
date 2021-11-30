@@ -1,7 +1,18 @@
 import { useDeck } from "../context/DeckContext";
+import { deleteData } from '../utils/apiCalls';
 
 function Card({ card }) {
-  const { addCard } = useDeck();
+  const { removeCard } = useDeck();
+
+  const deleteCard = async (card) => {
+    let response = await deleteData(card.id)
+    if (response.ok) {
+      removeCard(card)
+    } else {
+      //shore up error handling here?
+    }
+  }
+
   return (
     <article>
       <dl>
@@ -17,7 +28,9 @@ function Card({ card }) {
         <dt>Title:</dt>
         <dd>{card.categories}</dd>
       </dl>
-      <button onClick={() => addCard(card)}>Add Card</button>
+      <button onClick={() => deleteCard(card)}>Delete</button>
+
+      <br></br><br></br>
     </article>
   )
 }
