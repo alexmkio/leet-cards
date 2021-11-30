@@ -1,4 +1,5 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
+import { useState } from 'react';
 import { getData } from '../../utils/apiCalls'
 import { CardType } from '../../types/index'
 
@@ -8,20 +9,29 @@ type Props = {
 }
 
 export default function EditPost({ card, errors }: Props) {
-
   if (errors) {
     return (
       <h2>
         ERRORS!
       </h2>
     )
+  } else if (card) {
+    const [question, setQuestion] = useState(card.question);
+    const [answer, setAnswer] = useState(card.answer);
+    const [stack, setStack] = useState(card.side);
+    const [categories, setCategories] = useState(card.categories);
+    const [category, setCategory] = useState<string>('');
+
+    return (
+      <>
+        {card.question}
+        {card.answer}
+        {card.side}
+        {card.categories}
+      </>
+    )
   }
 
-  return (
-    <h1>
-      NO ERRORS!
-    </h1>
-  )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
