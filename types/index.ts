@@ -6,9 +6,13 @@ export type CardType = {
   categories: string[]
 }
 
-export interface PostObject {
-  question:   string;
-  answer:     string;
-  side:       string;
-  categories: string[];
+export type PostObject = {
+  question:   string
+  answer:     string
+  side:       string
+  categories: string[]
+}
+
+export type PutObject = {
+  answer:     string
 }
