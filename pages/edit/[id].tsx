@@ -5,52 +5,44 @@ import { CardType } from '../../types/index'
 import { useDeck } from "../../context/DeckContext";
 
 type Props = {
-  card?: CardType
-  errors?: string
+  card: CardType
 }
 
-export default function EditPost({ card, errors }: Props) {
-  const [answer, setAnswer] = useState(card?.answer);
+export default function EditPost({ card }: Props) {
+  const [answer, setAnswer] = useState(card.answer);
   const { updateCard } = useDeck();
 
   const putFlashCard = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    let response = await putData(card?.id, {
+    let response = await putData(card.id, {
       answer: answer,
     })
     //shore up conditional logic here: should be = if success (not error) do this
-    // if (response.id) {
-    //   addCard(response)
-    // }
-    // setAnswer('')
+    if (response === 'The answer was updated!') {
+      updateCard(card.id, {
+        answer: answer,
+      })
+    }
   }
 
-  if (errors) {
-    return (
-      <h2>
-        ERRORS!
-      </h2>
-    )
-  } else if (card) {
-    return (
-      <>
-        {card.question}, {card.side}, {card.categories}
-        <form onSubmit={putFlashCard}>
+  return (
+    <>
+      {card.question}, {card.side}, {card.categories}
+      <form onSubmit={putFlashCard}>
 
-          <label htmlFor="answer">Answer:</label>
-          <input
-            type="text"
-            id="answer"
-            value={answer}
-            onChange={(event)=> setAnswer(event.target.value)}
-            required
-          />
+        <label htmlFor="answer">Answer:</label>
+        <input
+          type="text"
+          id="answer"
+          value={answer}
+          onChange={(event)=> setAnswer(event.target.value)}
+          required
+        />
 
-          <button type="submit">Submit</button>
-        </form>
-      </>
-    )
-  }
+        <button type="submit">Submit</button>
+      </form>
+    </>
+  )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -62,13 +54,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  try {
-    const id = params?.id
-    const card: CardType = await getData(`cards/${id}`)
-    return { props: { card } }
-  } catch (error) {
-    if (error instanceof Error) {
-      return { props: { errors: error.message } }
-    }
-  }
+  const id = params?.id
+  const card: CardType = await getData(`cards/${id}`)
+  return { props: { card } }
 }

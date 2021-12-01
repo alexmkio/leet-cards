@@ -14,5 +14,5 @@ export type PostObject = {
 }
 
 export type PutObject = {
-  answer:     string | undefined
+  answer:     string
 }
