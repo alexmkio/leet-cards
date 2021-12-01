@@ -1,4 +1,4 @@
-import { PostObject } from "../types"
+import { PostObject, PutObject } from "../types"
 
 export const getData = async (endpoint: String) => {
   let response = await fetch(`https://leet-cards.herokuapp.com/${endpoint}`)
@@ -9,6 +9,17 @@ export const postData = async (postObject: PostObject) => {
   let response = await fetch(`https://leet-cards.herokuapp.com/cards`, {
     method: 'POST',
     body: JSON.stringify(postObject),
+    headers: {
+      'Content-type': 'application/json'
+    }
+  })
+  return checkForError(response)
+}
+
+export const putData = async (endpoint: Number | undefined, putObject: PutObject) => {
+  let response = await fetch(`https://leet-cards.herokuapp.com/cards/${endpoint}`, {
+    method: 'PUT',
+    body: JSON.stringify(putObject),
     headers: {
       'Content-type': 'application/json'
     }
