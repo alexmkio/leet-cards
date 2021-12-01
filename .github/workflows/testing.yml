@@ -21,5 +21,5 @@ jobs:
     - name: Run Cypress suite
       uses: cypress-io/github-action@v2
       with:
-          build: next build
-          start: next start
+          build: npm build
+          start: npm start
