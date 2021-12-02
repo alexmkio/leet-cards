@@ -2,7 +2,7 @@ import { useDeck } from "../context/DeckContext";
 import { deleteData } from '../utils/apiCalls';
 import Link from 'next/link'
 
-function Card({ card }) {
+export default function Card({ card }) {
   const { removeCard } = useDeck();
 
   const deleteCard = async (card) => {
@@ -47,5 +47,3 @@ function Card({ card }) {
     </article>
   )
 }
-
-export default Card
