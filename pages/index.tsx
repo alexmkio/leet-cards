@@ -8,10 +8,11 @@ const Landing: NextPage = () => {
       <Head>
         <title>Leet Cards - A flash card application to help software engineers study</title>
         <meta name="description" content="Leet Cards - A flash card application to help software engineers study" />
+        <meta name="theme-color" content="#67E8F9" />
       </Head>
 
-      <div className="h-full flex justify-center items-center">
-        <article className="w-8/12 p-6 py-12 border rounded-2xl shadow-md bg-gray-100 overflow-hidden">
+      <div className="flex justify-center">
+        <article className="h-full w-8/12 flex flex-col">
           <p className="text-xl font-semibold text-center">
             Welcome to Leet Code!
           </p>
