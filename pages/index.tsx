@@ -12,7 +12,7 @@ const Landing: NextPage = () => {
       </Head>
 
       <div className="flex justify-center">
-        <article className="h-full w-7/12 flex flex-col">
+        <article className="w-7/12 flex flex-col">
           <h2 className="text-6xl font-semibold text-center py-12">
             Welcome to Leet Code!
           </h2>
