@@ -15,9 +15,9 @@ const Add: NextPage = () => {
 
   let options = categories.map(category => {
     return (
-      <label key={category}>
+      <label key={category} className="flex items-center pr-8 py-1">
         <input type="checkbox" value={category} checked onChange={event => removeCategory(event)} />
-        <span className="text-lg">{category}</span>
+        <span className="text-lg pl-1">{category}</span>
       </label>
     )
   })
@@ -105,7 +105,9 @@ const Add: NextPage = () => {
 
           <fieldset>
             <legend className="text-lg pt-8">Categories:</legend>
-            {options}
+            <div className="flex flex-wrap">
+              {options}
+            </div>
           </fieldset>
           <div className="flex justify-between">
             <input
@@ -113,7 +115,7 @@ const Add: NextPage = () => {
               className="w-1/2 rounded-lg shadow-sm text-lg border-gray-300 focus:border-red-300 focus:ring focus:ring-red-300 focus:ring-opacity-50"
               id="category"
               value={category}
-              placeholder="Your new category"
+              placeholder="ex: HTML"
               onChange={event => setCategory(event.target.value)}
             />
             <button onClick={() => addCategory()} className="flex items-center text-lg rounded-full py-3 px-9 transition duration-500 ease-in-out bg-red-300 hover:bg-red-400 transform hover:scale-110 hover:shadow-2xl hover:text-blueGray-100">
