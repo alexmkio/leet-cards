@@ -1,11 +1,16 @@
 import { useDeck } from "../context/DeckContext";
 import { deleteData } from '../utils/apiCalls';
 import Link from 'next/link'
+import { CardType, PutObject } from '../types/index'
 
-function Card({ card }) {
+type Props = {
+  card: CardType
+}
+
+export default function Card({ card }: Props) {
   const { removeCard } = useDeck();
 
-  const deleteCard = async (card) => {
+  const deleteCard = async (card: CardType) => {
     let response = await deleteData(card.id)
     if (response.ok) {
       removeCard(card)
@@ -15,6 +20,7 @@ function Card({ card }) {
   }
 
   return (
+    // <article className="w-8/12 p-6 py-12 border rounded-2xl shadow-md bg-gray-100 overflow-hidden"></article>
     <article>
       <dl>
         <dt>Title:</dt>
@@ -47,5 +53,3 @@ function Card({ card }) {
     </article>
   )
 }
-
-export default Card
