@@ -56,6 +56,7 @@ const Add: NextPage = () => {
       setCategories([])
       setFormError('')
     } else {
+      console.log(event.cancelable)
       setFormError('Sorry, add a category first!')
     }
   }
@@ -125,7 +126,7 @@ const Add: NextPage = () => {
               </svg>
             </button>
           </div>
-          <p>{formError}</p>
+          <p className="text-red-500">{formError}</p>
 
           <div className="flex justify-center pt-16">
             <button type="submit" className="flex items-center text-xl rounded-full py-3 px-9 transition duration-500 ease-in-out bg-red-300 hover:bg-red-400 transform hover:scale-110 hover:shadow-2xl hover:text-blueGray-100">
