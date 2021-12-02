@@ -13,9 +13,9 @@ const Landing: NextPage = () => {
 
       <div className="flex justify-center">
         <article className="h-full w-8/12 flex flex-col">
-          <p className="text-xl font-semibold text-center">
+          <h2 className="text-xl font-semibold text-center">
             Welcome to Leet Code!
-          </p>
+          </h2>
           <p className="text-xl pt-8">
             Leet Code is an application designed to help software engineers study for common technical interview questions.
           </p>
