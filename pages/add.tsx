@@ -30,14 +30,15 @@ const Add: NextPage = () => {
     setCategories([...currentCategories])
   }
 
-  const addCategory = () => {
+  const addCategory = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault();
     if (!categories.includes(category)) {
       setCategories([...categories, category])
     }
     setCategory('')
   }
 
-  const postFlashCard = async (event: React.FormEvent<HTMLFormElement>) => {
+  const postFlashCard = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
     if (question && answer && stack && categories.length) {
       let response = await postData({
@@ -71,7 +72,7 @@ const Add: NextPage = () => {
       
       <h2 className="text-6xl font-semibold py-12 text-center capitalize">Create a new flash card</h2>
       <div className="flex justify-center">
-        <form className="w-6/12 flex flex-col" onSubmit={postFlashCard}>
+        <form className="w-6/12 flex flex-col">
 
           <label className="text-lg" htmlFor="question">Question:</label>
           <textarea
@@ -110,6 +111,7 @@ const Add: NextPage = () => {
               {options}
             </div>
           </fieldset>
+
           <div className="flex justify-between">
             <input
               type="text"
@@ -119,7 +121,7 @@ const Add: NextPage = () => {
               placeholder="ex: HTML"
               onChange={event => setCategory(event.target.value)}
             />
-            <button onClick={() => addCategory()} className="flex items-center text-lg rounded-full py-3 px-9 transition duration-500 ease-in-out bg-red-300 hover:bg-red-400 transform hover:scale-110 hover:shadow-2xl hover:text-blueGray-100">
+            <button onClick={(event) => addCategory(event)} className="flex items-center text-lg rounded-full py-3 px-9 transition duration-500 ease-in-out bg-red-300 hover:bg-red-400 transform hover:scale-110 hover:shadow-2xl hover:text-blueGray-100">
               Add category&nbsp;
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -129,7 +131,7 @@ const Add: NextPage = () => {
           <p className="text-red-500">{formError}</p>
 
           <div className="flex justify-center pt-16">
-            <button type="submit" className="flex items-center text-xl rounded-full py-3 px-9 transition duration-500 ease-in-out bg-red-300 hover:bg-red-400 transform hover:scale-110 hover:shadow-2xl hover:text-blueGray-100">
+            <button onClick={(event) => postFlashCard(event)} className="flex items-center text-xl rounded-full py-3 px-9 transition duration-500 ease-in-out bg-red-300 hover:bg-red-400 transform hover:scale-110 hover:shadow-2xl hover:text-blueGray-100">
               Create card&nbsp;
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
