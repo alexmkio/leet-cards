@@ -31,7 +31,9 @@ const Add: NextPage = () => {
   }
 
   const addCategory = () => {
-    setCategories([...categories, category])
+    if (!categories.includes(category)) {
+      setCategories([...categories, category])
+    }
     setCategory('')
   }
 
