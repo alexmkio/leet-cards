@@ -4,7 +4,7 @@ import gitHubDark from '../images/github_dark.png'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 flex justify-around items-center">
+    <footer className="bg-gray-50 flex justify-between items-center px-40">
       <h2 className="font-header text-2xl md:text-3xl text-center p-4 md:p-6">
         Built by:&nbsp;
         <a href="https://www.linkedin.com/in/alexkio/" target="_blank">
@@ -22,11 +22,6 @@ export default function Footer() {
           />
         </a>
       </div>
-      <Link href='/add'>
-        <a>
-          <h2 className="font-header text-2xl md:text-3xl text-center p-4 md:p-6">Add a flash card</h2>
-        </a>
-      </Link>
     </footer>
   )
 }
