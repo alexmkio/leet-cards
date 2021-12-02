@@ -32,7 +32,7 @@ export default function Header() {
       </Link>
   }
   return (
-    <header className="flex justify-between items-center px-40 bg-gray-50 shadow-md sticky top-0 z-50">
+    <header className="flex justify-between items-center px-40 bg-gray-50 shadow-md sticky top-0 z-50 opacity-90">
       {logo}
       <Link href='/add'>
         <a>
