@@ -7,7 +7,6 @@ export default function Header() {
   const router = useRouter()
 
   let appLogo = 
-  <div className="flex items-center">
     <div className="w-12 md:w-16">
       <Image
         alt="GitHub icon"
@@ -17,17 +16,22 @@ export default function Header() {
         height={450}
       />
     </div>
-    <h1 className="font-header text-4xl md:text-5xl p-2 md:p-4">Leet Code</h1>
-  </div>
 
   let logo
   if (router.pathname === "/") {
-    logo = appLogo
+    logo = 
+      <div className="flex items-center">
+        {appLogo}
+        <h1 className="font-header text-4xl md:text-5xl p-2 md:p-4">Leet Code</h1>
+      </div>
   } else {
     logo =
       <Link href='/'>
         <a>
-          {appLogo}
+          <div className="flex items-center transition duration-300 ease-in-out hover:text-red-500">
+            {appLogo}
+            <h1 className="font-header text-4xl md:text-5xl p-2 md:p-4">Leet Code</h1>
+          </div>
         </a>
       </Link>
   }
@@ -36,7 +40,7 @@ export default function Header() {
       {logo}
       <Link href='/add'>
         <a>
-          <h2 className="font-header text-2xl md:text-3xl">Add a flash card</h2>
+          <h2 className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500">Add a flash card</h2>
         </a>
       </Link>
     </header>

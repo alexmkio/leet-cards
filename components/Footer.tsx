@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="bg-gray-50 flex justify-between items-center px-40">
       <h2 className="font-header text-2xl md:text-3xl text-center p-4 md:p-6">
         Built by:&nbsp;
-        <a href="https://www.linkedin.com/in/alexkio/" target="_blank" rel="noreferrer">
+        <a href="https://www.linkedin.com/in/alexkio/" target="_blank" rel="noreferrer" className="transition duration-300 ease-in-out hover:text-red-500">
           Alex Kio
         </a>
       </h2>
