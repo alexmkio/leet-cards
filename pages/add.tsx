@@ -12,8 +12,24 @@ const Add: NextPage = () => {
   const [category, setCategory] = useState<string>('');
   const { addCard } = useDeck();
 
-  const addCategory = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  let options = categories.map(category => {
+    return (
+      <label key={category}>
+        <input type="checkbox" value={category} checked onChange={event => removeCategory(event)} />
+        <span className="text-lg">{category}</span>
+      </label>
+    )
+  })
+
+  const removeCategory = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
+    let currentCategories = categories
+    let ind = categories.indexOf(event.target.value)
+    currentCategories.splice(ind, 1)
+    setCategories([...currentCategories])
+  }
+
+  const addCategory = () => {
     setCategories([...categories, category])
     setCategory('')
   }
@@ -53,7 +69,6 @@ const Add: NextPage = () => {
             className="w-full rounded-lg shadow-sm text-lg border-gray-300 focus:border-red-300 focus:ring focus:ring-red-300 focus:ring-opacity-50"
             id="question"
             value={question}
-            placeholder="Placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder"
             onChange={(event)=> setQuestion(event.target.value)}
             required
           />
@@ -63,7 +78,6 @@ const Add: NextPage = () => {
             className="w-full rounded-lg shadow-sm text-lg border-gray-300 focus:border-red-300 focus:ring focus:ring-red-300 focus:ring-opacity-50"
             id="answer"
             value={answer}
-            placeholder="Placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder"
             onChange={(event)=> setAnswer(event.target.value)}
             required
           ></textarea>
@@ -76,43 +90,26 @@ const Add: NextPage = () => {
             onChange={(event)=> setStack(event.target.value)}
             required
           >
+            <option value="" disabled>Choose the stack</option>
             <option value="FE">Front-End</option>
             <option value="BE">Back-End</option>
           </select>
 
-          <label className="text-lg" htmlFor="category">Categories:</label>
-          <label>
-            <input type="checkbox" />
-            <span className="text-lg">JavaScript</span>
-          </label>
-          <label>
-            <input type="checkbox" />
-            <span className="text-lg">TypeScript</span>
-          </label>
-          <label>
-            <input type="checkbox" />
-            <span className="text-lg">HTML</span>
-          </label>
-          <label>
-            <input type="checkbox" />
-            <span className="text-lg">CSS</span>
-          </label>
-          <label>
-            <input type="checkbox" />
-            <span className="text-lg">React</span>
-          </label>
+          <fieldset>
+            <legend className="text-lg">Categories:</legend>
+            {options}
+          </fieldset>
           <input
             type="text"
             className="w-full rounded-lg shadow-sm text-lg border-gray-300 focus:border-red-300 focus:ring focus:ring-red-300 focus:ring-opacity-50"
             id="category"
             value={category}
-            placeholder="Placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder"
+            placeholder="Your new category"
             onChange={event => setCategory(event.target.value)}
           />
-          {categories}
 
           <div className="flex justify-center pt-8">
-            <button onClick={event => addCategory(event)} className="flex items-center text-xl rounded-full py-3 px-9 transition duration-500 ease-in-out bg-red-300 hover:bg-red-400 transform hover:scale-110 hover:shadow-2xl hover:text-blueGray-100">
+            <button onClick={() => addCategory()} className="flex items-center text-xl rounded-full py-3 px-9 transition duration-500 ease-in-out bg-red-300 hover:bg-red-400 transform hover:scale-110 hover:shadow-2xl hover:text-blueGray-100">
               Add category&nbsp;
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
