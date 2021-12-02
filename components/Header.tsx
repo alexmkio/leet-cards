@@ -3,7 +3,7 @@ import gitHubDark from '../images/flash_cards.png'
 
 export default function Header() {
   return (
-    <header className="flex justify-center items-center bg-gray-50 bg-opacity-5 shadow-md sticky top-0 z-50">
+    <header className="flex justify-center items-center bg-gray-50 shadow-md sticky top-0 z-50">
       <div className="w-12 md:w-16">
         <Image
           alt="GitHub icon"
