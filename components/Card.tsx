@@ -37,9 +37,9 @@ export default function Card({ card }: Props) {
           <p>We love that guy</p>
         </div>
         <div className={styles.flipcardback}>
-          <h1>John Doe</h1>
-          <p>Architect & Engineer</p>
-          <p>We love that guy</p>
+          <h1>Alex Kio</h1>
+          <p>Wannabe Software Engineer</p>
+          <p>Fuck that guy</p>
         </div>
       </div>
     </div>
