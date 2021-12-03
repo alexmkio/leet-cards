@@ -20,7 +20,7 @@ export default function Card({ card }: Props) {
   }
 
   return (
-    <article className="w-9/12 h-full p-6 py-12 text-lg bg-blue-300 border rounded-2xl shadow-md">
+    <article className="w-full h-full p-6 py-12 text-lg bg-blue-300 border rounded-2xl shadow-md">
       <dl className="flex flex-col items-center">
         <dt className="px-4 pb-1 border-b border-gray-800">Question:</dt>
         <dd className="pt-4 text-center">{card.question}</dd>

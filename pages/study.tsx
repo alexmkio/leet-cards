@@ -11,8 +11,8 @@ export default function Test() {
   })
 
   return (
-    <>
+    <section className="p-4 grid grid-cols-3 place-items-center gap-8">
       {flashCards}
-    </>
-  );
+    </section>
+  )
 }
