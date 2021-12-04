@@ -13,7 +13,7 @@ const fullHeaders: HeadersInit = {
 }
 
 export const getData = async (path: String) => {
-  console.log('vercel', process.env.VERCEL, host)
+  console.log('vercel', process.env.VERCEL, process.env.VERCEL_ENV, process.env.VERCEL_URL, host)
   const url = `${host}${path}`
   const opts: RequestInit = {
     method: 'GET',
