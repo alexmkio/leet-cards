@@ -1,39 +1,58 @@
 import { PostObject, PutObject } from "../types"
 
-export const getData = async (endpoint: String) => {
-  let response = await fetch(`https://leet-cards.herokuapp.com/${endpoint}`)
+const host = process.env.VERCEL ? 'https://leet-cards.herokuapp.com/' : 'http://localhost:6565/'
+const apiKey = process.env.VERCEL ? process.env.API_KEY : process.env.NEXT_PUBLIC_DEVELOPMENT_ENV_VARIABLE
+
+const headers: HeadersInit = {
+  'apiKey': apiKey as string
+}
+
+const fullHeaders: HeadersInit = {
+  'Content-type': 'application/json',
+  'apiKey': apiKey as string
+}
+
+export const getData = async (path: String) => {
+  console.log('vercel', apiKey, process.env.API_KEY, process.env.VERCEL, process.env.VERCEL_ENV, process.env.VERCEL_URL, host)
+  const url = `${host}${path}`
+  const opts: RequestInit = {
+    method: 'GET',
+    headers
+  };
+  let response = await fetch(url, opts)
   return checkForError(response)
 }
 
 export const postData = async (postObject: PostObject) => {
-  let response = await fetch(`https://leet-cards.herokuapp.com/cards`, {
+  const url = `${host}cards`
+  const opts: RequestInit = {
     method: 'POST',
     body: JSON.stringify(postObject),
-    headers: {
-      'Content-type': 'application/json'
-    }
-  })
+    headers: fullHeaders
+  };
+  let response = await fetch(url, opts)
   return checkForError(response)
 }
 
-export const putData = async (endpoint: Number | undefined, putObject: PutObject) => {
-  let response = await fetch(`https://leet-cards.herokuapp.com/cards/${endpoint}`, {
+export const putData = async (path: Number | undefined, putObject: PutObject) => {
+  const url = `${host}${path}`
+  const opts: RequestInit = {
     method: 'PUT',
     body: JSON.stringify(putObject),
-    headers: {
-      'Content-type': 'application/json'
-    }
-  })
+    headers: fullHeaders
+  };
+  let response = await fetch(url, opts)
   return checkForError(response)
 }
 
-export const deleteData = (id: Number) => {
-  return fetch(`https://leet-cards.herokuapp.com/cards/${id}`, {
+export const deleteData = async (id: Number) => {
+  const url = `${host}cards/${id}`
+  const opts: RequestInit = {
     method: 'DELETE',
-    headers: {
-      'Content-type': 'application/json'
-    }
-  })
+    headers: fullHeaders
+  };
+  let response = await fetch(url, opts)
+  return checkForError(response)
 }
 
 const checkForError = async (response: Response) => {
