@@ -1,7 +1,7 @@
 import { PostObject, PutObject } from "../types"
 
 const host = process.env.VERCEL ? 'https://leet-cards.herokuapp.com/' : 'http://localhost:6565/'
-const apiKey = process.env.NEXT_PUBLIC_DEVELOPMENT_ENV_VARIABLE ? process.env.NEXT_PUBLIC_DEVELOPMENT_ENV_VARIABLE : process.env.API_KEY
+const apiKey = process.env.VERCEL ? process.env.API_KEY : process.env.NEXT_PUBLIC_DEVELOPMENT_ENV_VARIABLE
 
 const headers: HeadersInit = {
   'apiKey': apiKey as string
