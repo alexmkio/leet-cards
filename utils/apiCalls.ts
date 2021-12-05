@@ -1,7 +1,7 @@
 import { PostObject, PutObject } from "../types"
 
-const host = process.env.NEXT_PUBLIC_VERCEL_ENV === 'production' ? 'https://leet-cards.herokuapp.com/' : 'http://localhost:6565/'
-const apiKey = process.env.NEXT_PUBLIC_VERCEL_ENV === 'production' ? process.env.API_KEY : process.env.NEXT_PUBLIC_API_KEY
+const host = process.env.NEXT_PUBLIC_VERCEL_ENV ? 'https://leet-cards.herokuapp.com/' : 'http://localhost:6565/'
+const apiKey = process.env.NEXT_PUBLIC_VERCEL_ENV ? process.env.API_KEY : process.env.NEXT_PUBLIC_API_KEY
 // const apiKey = "4hrKQWyy42iI"
 
 const headers: HeadersInit = {
@@ -14,6 +14,7 @@ const fullHeaders: HeadersInit = {
 }
 
 export const getData = async (path: String) => {
+  console.log(process.env.NEXT_PUBLIC_VERCEL_ENV, host, apiKey)
   const url = `${host}${path}`
   const opts: RequestInit = {
     method: 'GET',
