@@ -32,6 +32,7 @@ const Add: NextPage = () => {
 
   const addCategory = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
+    setFormError('')
     if (!categories.includes(category)) {
       setCategories([...categories, category])
     }
