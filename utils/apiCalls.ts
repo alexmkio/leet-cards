@@ -1,6 +1,6 @@
 import { PostObject, PutObject } from "../types"
 
-const host = window.location.hostname === 'localhost' ? 'http://localhost:6565/' : 'https://leet-cards.herokuapp.com/'
+const host = process.env.VERCEL ? 'https://leet-cards.herokuapp.com/' : 'http://localhost:6565/'
 // const apiKey = process.env.VERCEL ? process.env.API_KEY : process.env.NEXT_PUBLIC_DEVELOPMENT_ENV_VARIABLE
 const apiKey = "4hrKQWyy42iI"
 
