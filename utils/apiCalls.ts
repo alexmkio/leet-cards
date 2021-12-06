@@ -35,12 +35,12 @@ export const postData = async (postObject: PostObject) => {
 }
 
 export const putData = async (path: Number | undefined, putObject: PutObject) => {
-  const url = `${host}${path}`
+  const url = `${host}cards/${path}`
   const opts: RequestInit = {
     method: 'PUT',
     body: JSON.stringify(putObject),
     headers: fullHeaders
-  };
+  }
   let response = await fetch(url, opts)
   return checkForError(response)
 }
