@@ -29,7 +29,7 @@ export default function Card({ card }: Props) {
     <article
       onMouseEnter={handleToggle}
       onMouseLeave={handleToggle}
-      className="w-full h-60 bg-transparent"
+      className="w-full h-72 bg-transparent"
       style={{perspective: "1000px"}}
     >
       <div

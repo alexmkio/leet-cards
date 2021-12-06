@@ -19,7 +19,7 @@ export default function Test() {
         <meta name="theme-color" content="#F9A8D4" />
       </Head>
 
-      <section className="p-4 grid grid-cols-3 place-items-center gap-8">
+      <section className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center gap-8">
         {flashCards}
       </section>
     </>
