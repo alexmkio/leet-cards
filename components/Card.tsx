@@ -48,29 +48,31 @@ export default function Card({ card }: Props) {
         </div>
 
         <div
-          className="absolute overflow-auto w-full h-full p-6 py-12 text-lg bg-red-300 border rounded-2xl shadow-md"
+          className="flex flex-col justify-between absolute overflow-auto w-full h-full p-8 text-lg bg-red-300 border rounded-2xl shadow-md"
           style={{backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden", transform: "rotateY(180deg)"}}
         >
           <dl className="flex flex-col items-center">
             <dt className="px-4 pb-1 border-b border-gray-800">Answer:</dt>
             <dd className="pt-4 text-center">{card.answer}</dd>
           </dl>
-          <div className="flex justify-around content-end">
+
+          <div className="flex justify-around">
             <Link
               href={{
                 pathname: `/edit/${card.id}`,
               }}
             >
               <a>
-                <button className="flex items-center rounded-full py-3 px-9 transition duration-500 ease-in-out bg-yellow-200 hover:bg-yellow-300 transform hover:scale-110 hover:shadow-2xl">
+                <button className="flex items-center text-md md:text-lg rounded-full py-3 px-9 transition duration-500 ease-in-out bg-yellow-200 hover:bg-yellow-300 transform hover:scale-110 hover:shadow-2xl">
                   Edit Answer
                 </button>
               </a>
             </Link>
-            <button onClick={() => deleteCard()} className="flex items-center rounded-full py-3 px-9 transition duration-500 ease-in-out bg-yellow-200 hover:bg-yellow-300 transform hover:scale-110 hover:shadow-2xl">
+            <button onClick={() => deleteCard()} className="flex items-center text-md md:text-lg rounded-full py-3 px-9 transition duration-500 ease-in-out bg-yellow-200 hover:bg-yellow-300 transform hover:scale-110 hover:shadow-2xl">
               Delete Card
             </button>
           </div>
+
         </div>
 
       </div>
