@@ -21,7 +21,6 @@ export default function Card({ card }: Props) {
     >
       <div
         className="w-full h-full text-center"
-        // className="relative w-full h-full text-center"
         style={isHovered ? {transition: "transform 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275)", transformStyle: "preserve-3d", transform: "rotateY(180deg)"} : {transition: "transform 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275)", transformStyle: "preserve-3d"}}
       >
         <div
@@ -34,7 +33,7 @@ export default function Card({ card }: Props) {
           </dl>
         </div>
         <div
-          className="absolute w-full min-h-full p-6 py-12 text-lg bg-red-300 border rounded-2xl shadow-md"
+          className="absolute overflow-auto w-full h-full p-6 py-12 text-lg bg-red-300 border rounded-2xl shadow-md"
           style={{backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden", transform: "rotateY(180deg)"}}
         >
           <dl className="flex flex-col items-center">
