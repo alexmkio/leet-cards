@@ -35,7 +35,7 @@ export function DeckProvider({ children }: Props) {
       setDeck(fetched)
     } catch (error) {
       //shore this up
-      console.log(error)
+      console.log('DeckContext - fetchDeck', error)
     }
   }
 
