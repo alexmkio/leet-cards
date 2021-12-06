@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { useState } from 'react';
+import { useRouter } from 'next/router'
 import { getData, putData } from '../../utils/apiCalls'
 import { CardType } from '../../types/index'
 import { useDeck } from "../../context/DeckContext";
@@ -13,6 +14,7 @@ export default function EditPost({ card }: Props) {
   const [answer, setAnswer] = useState(card.answer);
   const [formError, setFormError] = useState('');
   const { updateCard } = useDeck();
+  const router = useRouter()
 
   const putFlashCard = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
@@ -27,6 +29,7 @@ export default function EditPost({ card }: Props) {
         updateCard(card.id, {
           answer: answer,
         })
+        router.push('/study')
       }
     }
   }
