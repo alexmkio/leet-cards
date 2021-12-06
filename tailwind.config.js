@@ -5,10 +5,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {
-      'sm': '550px',
-      'md': '810px',
-      'lg': '1200px',
-      'xl': '1600px'
+      'sm': '500px',
+      'md': '1100px',
+      'lg': '1400px',
+      'xl': '1880px'
     },
     colors: {
       blueGray: colors.blueGray,

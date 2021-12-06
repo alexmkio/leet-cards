@@ -20,23 +20,23 @@ export default function Header() {
   let logo
   if (router.pathname === "/") {
     logo = 
-      <div className="flex items-center">
+      <div className="flex items-center pb-2 md:pb-0">
         {appLogo}
-        <h1 className="font-header text-4xl md:text-5xl p-2 md:p-4">Leet Code</h1>
+        <h1 className="font-header text-4xl md:text-5xl pl-2 md:pl-4">Leet Code</h1>
       </div>
   } else {
     logo =
       <Link href='/'>
         <a>
-          <div className="flex items-center transition duration-300 ease-in-out hover:text-red-500">
+          <div className="flex items-center pb-2 md:pb-0 transition duration-300 ease-in-out hover:text-red-500">
             {appLogo}
-            <h1 className="font-header text-4xl md:text-5xl p-2 md:p-4">Leet Code</h1>
+            <h1 className="font-header text-4xl md:text-5xl pl-2 md:pl-4">Leet Code</h1>
           </div>
         </a>
       </Link>
   }
   return (
-    <header className="flex justify-between items-center px-40 bg-gray-50 shadow-md sticky top-0 z-50 opacity-90">
+    <header className="flex flex-col p-2 md:p-4 md:flex-row md:justify-between md:px-40 items-center bg-gray-50 shadow-md sticky top-0 z-50 opacity-90">
       {logo}
       <Link href='/add'>
         <a>
