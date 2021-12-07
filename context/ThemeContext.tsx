@@ -1,4 +1,4 @@
-import { createContext, useContext, ReactNode, useState } from "react";
+import { createContext, useContext, ReactNode, useState, useEffect } from "react";
 
 type themeContextType = {
   darkMode: boolean;
@@ -19,7 +19,14 @@ type Props = {
 export function ThemeProvider({ children }: Props) {
   const [darkMode, setMode] = useState<boolean>(false);
 
+  useEffect(() => {
+    if (JSON.parse(localStorage.theme) || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      setMode(true)
+    }
+  }, [])
+
   const changeTheme = () => {
+    localStorage.setItem('theme', JSON.stringify(!darkMode))
     darkMode ? setMode(false) : setMode(true)
   }
 
