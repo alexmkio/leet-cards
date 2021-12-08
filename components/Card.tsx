@@ -63,7 +63,7 @@ export default function Card({ card }: Props) {
               }}
             >
               <a>
-                <button className="flex items-center text-md md:text-lg rounded-full py-3 px-9 transition duration-500 ease-in-out bg-yellow-200 hover:bg-yellow-300 transform hover:scale-110 hover:shadow-2xl dark:bg-green-200 dark:hover:bg-green-300 dark:text-gray-900">
+                <button className="flex items-center text-md md:text-lg rounded-full py-3 px-9 transition duration-500 ease-in-out bg-yellow-200 hover:bg-yellow-300 transform hover:scale-110 hover:shadow-2xl dark:bg-teal-200 dark:hover:bg-teal-300 dark:text-gray-900">
                   Edit Answer
                 </button>
               </a>
