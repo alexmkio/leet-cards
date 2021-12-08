@@ -2,7 +2,6 @@ import { useRouter } from 'next/router'
 import { useState, useEffect } from "react";
 import Link from 'next/link'
 import Image from 'next/image'
-// import { useTheme } from '../context/ThemeContext'
 import flashCards from '../images/flash_cards.png'
 
 export default function Header() {
@@ -20,7 +19,6 @@ export default function Header() {
     darkMode ? document.documentElement.classList.remove('dark') : document.documentElement.classList.add('dark')
     darkMode ? setMode(false) : setMode(true)
   }
-  // const { darkMode, changeTheme } = useTheme()
   const router = useRouter()
 
   let appLogo = 
