@@ -1,11 +1,26 @@
 import { useRouter } from 'next/router'
+import { useState, useEffect } from "react";
 import Link from 'next/link'
 import Image from 'next/image'
-import { useTheme } from '../context/ThemeContext'
+// import { useTheme } from '../context/ThemeContext'
 import gitHubDark from '../images/flash_cards.png'
 
 export default function Header() {
-  const { darkMode, changeTheme } = useTheme()
+  const [darkMode, setMode] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (localStorage.theme || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+      setMode(true)
+    }
+  }, [])
+
+  const changeTheme = () => {
+    localStorage.setItem('theme', JSON.stringify(!darkMode))
+    darkMode ? document.documentElement.classList.remove('dark') : document.documentElement.classList.add('dark')
+    darkMode ? setMode(false) : setMode(true)
+  }
+  // const { darkMode, changeTheme } = useTheme()
   const router = useRouter()
 
   let appLogo = 
