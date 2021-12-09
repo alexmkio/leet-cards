@@ -74,25 +74,6 @@ export default function EditPost({ card }: Props) {
       </div>
     </>
   )
-
-  // return (
-  //   <>
-  //     {card.question}, {card.side}, {card.categories}
-  //     <form onSubmit={putFlashCard}>
-
-  //       <label htmlFor="answer">Answer:</label>
-  //       <input
-  //         type="text"
-  //         id="answer"
-  //         value={answer}
-  //         onChange={(event)=> setAnswer(event.target.value)}
-  //         required
-  //       />
-
-  //       <button type="submit">Submit</button>
-  //     </form>
-  //   </>
-  // )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
