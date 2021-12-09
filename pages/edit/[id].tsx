@@ -79,13 +79,23 @@ export default function EditPost({ card }: Props) {
 export const getStaticPaths: GetStaticPaths = async () => {
   const deck: CardType[] = await getData('cards')
   const paths = deck.map((card) => ({
-    params: { id: card.id.toString() },
+    params: {
+      id: card.id.toString(),
+    },
   }))
-  return { paths, fallback: false }
+  return {
+    paths,
+    fallback: 'blocking',
+  }
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const id = params?.id
   const card: CardType = await getData(`cards/${id}`)
-  return { props: { card } }
+  return {
+    props: {
+      card,
+    },
+    revalidate: 10,
+  }
 }
