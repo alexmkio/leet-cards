@@ -58,7 +58,7 @@ export default function Header() {
   }
 
   return (
-    <header className="flex flex-col md:flex-row md:justify-between items-center p-2 md:p-4 md:px-40 bg-gray-50 shadow-md sticky top-0 z-50 opacity-90 dark:bg-gray-900">
+    <header className="flex flex-col md:flex-row md:justify-between items-center p-2 md:p-4 md:px-40 bg-gray-50 shadow-md sticky top-0 z-50 dark:bg-gray-900">
       {logo}
       <div onClick={() => changeTheme()}>
         {modeIcon}
