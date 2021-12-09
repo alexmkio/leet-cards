@@ -1,7 +1,3 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import gitHubDark from '../images/github_dark.png'
-
 export default function Footer() {
   return (
     <footer className="bg-gray-50 flex justify-between items-center p-2 md:px-40 dark:bg-gray-900 dark:bg-opacity-80">
