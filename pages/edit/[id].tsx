@@ -74,37 +74,28 @@ export default function EditPost({ card }: Props) {
       </div>
     </>
   )
-
-  // return (
-  //   <>
-  //     {card.question}, {card.side}, {card.categories}
-  //     <form onSubmit={putFlashCard}>
-
-  //       <label htmlFor="answer">Answer:</label>
-  //       <input
-  //         type="text"
-  //         id="answer"
-  //         value={answer}
-  //         onChange={(event)=> setAnswer(event.target.value)}
-  //         required
-  //       />
-
-  //       <button type="submit">Submit</button>
-  //     </form>
-  //   </>
-  // )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const deck: CardType[] = await getData('cards')
   const paths = deck.map((card) => ({
-    params: { id: card.id.toString() },
+    params: {
+      id: card.id.toString(),
+    },
   }))
-  return { paths, fallback: false }
+  return {
+    paths,
+    fallback: 'blocking',
+  }
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const id = params?.id
   const card: CardType = await getData(`cards/${id}`)
-  return { props: { card } }
+  return {
+    props: {
+      card,
+    },
+    revalidate: 10,
+  }
 }
