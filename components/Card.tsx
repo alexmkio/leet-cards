@@ -38,21 +38,21 @@ export default function Card({ card }: Props) {
       >
 
         <div
-          className="absolute w-full min-h-full p-6 py-12 text-lg bg-blue-300 border rounded-2xl shadow-md"
+          className="absolute w-full min-h-full p-6 py-12 text-lg bg-blue-300 border border-blue-300 rounded-2xl shadow-md dark:bg-gray-800 dark:border-gray-800"
           style={{backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden"}}
         >
           <dl className="flex flex-col items-center">
-            <dt className="px-4 pb-1 border-b border-gray-800">Question:</dt>
+            <dt className="px-4 pb-1 border-b border-gray-800 dark:text-green-200 dark:border-green-200">Question:</dt>
             <dd className="pt-4 text-center">{card.question}</dd>
           </dl>
         </div>
 
         <div
-          className="flex flex-col justify-between absolute overflow-auto w-full h-full p-8 text-lg bg-red-300 border rounded-2xl shadow-md"
+          className="flex flex-col justify-between absolute overflow-auto w-full h-full p-8 text-lg bg-red-300 border rounded-2xl shadow-md dark:bg-gray-800 dark:border-gray-800"
           style={{backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden", transform: "rotateY(180deg)"}}
         >
           <dl className="flex flex-col items-center">
-            <dt className="px-4 pb-1 border-b border-gray-800">Answer:</dt>
+            <dt className="px-4 pb-1 border-b border-gray-800 dark:text-green-200 dark:border-green-200">Answer:</dt>
             <dd className="pt-4 text-center">{card.answer}</dd>
           </dl>
 
@@ -63,12 +63,12 @@ export default function Card({ card }: Props) {
               }}
             >
               <a>
-                <button className="flex items-center text-md md:text-lg rounded-full py-3 px-9 transition duration-500 ease-in-out bg-yellow-200 hover:bg-yellow-300 transform hover:scale-110 hover:shadow-2xl">
+                <button className="flex items-center text-md md:text-lg rounded-full py-3 px-9 transition duration-500 ease-in-out bg-yellow-200 hover:bg-yellow-300 transform hover:scale-110 hover:shadow-2xl dark:bg-teal-200 dark:hover:bg-teal-300 dark:text-gray-900">
                   Edit Answer
                 </button>
               </a>
             </Link>
-            <button onClick={() => deleteCard()} className="flex items-center text-md md:text-lg rounded-full py-3 px-9 transition duration-500 ease-in-out bg-yellow-200 hover:bg-yellow-300 transform hover:scale-110 hover:shadow-2xl">
+            <button onClick={() => deleteCard()} className="flex items-center text-md md:text-lg rounded-full py-3 px-9 transition duration-500 ease-in-out bg-yellow-200 hover:bg-yellow-300 transform hover:scale-110 hover:shadow-2xl dark:bg-blue-200 dark:hover:bg-blue-300 dark:text-gray-900">
               Delete Card
             </button>
           </div>
