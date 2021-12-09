@@ -38,7 +38,7 @@ export default function Card({ card }: Props) {
       >
 
         <div
-          className="absolute w-full min-h-full p-6 py-12 text-lg bg-blue-300 border border-blue-300 rounded-2xl shadow-md dark:bg-gray-800 dark:border-gray-800"
+          className="absolute w-full min-h-full p-6 py-12 text-lg bg-blue-300 border border-blue-300 rounded-2xl shadow-md dark:bg-gray-700 dark:border-gray-700"
           style={{backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden"}}
         >
           <dl className="flex flex-col items-center">
@@ -48,7 +48,7 @@ export default function Card({ card }: Props) {
         </div>
 
         <div
-          className="flex flex-col justify-between absolute overflow-auto w-full h-full p-8 text-lg bg-red-300 border rounded-2xl shadow-md dark:bg-gray-800 dark:border-gray-800"
+          className="flex flex-col justify-between absolute overflow-auto w-full h-full p-8 text-lg bg-red-300 border rounded-2xl shadow-md dark:bg-gray-700 dark:border-gray-700"
           style={{backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden", transform: "rotateY(180deg)"}}
         >
           <dl className="flex flex-col items-center">

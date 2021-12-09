@@ -4,7 +4,7 @@ import gitHubDark from '../images/github_dark.png'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 flex justify-between items-center p-2 md:px-40 dark:bg-gray-900 dark:bg-opacity-90">
+    <footer className="bg-gray-50 flex justify-between items-center p-2 md:px-40 dark:bg-gray-900 dark:bg-opacity-80">
       <h2 className="font-header text-2xl md:text-3xl text-center">
         Built by:&nbsp;
         <a href="https://www.linkedin.com/in/alexkio/" target="_blank" rel="noreferrer" className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-200">
