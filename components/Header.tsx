@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { useDeck } from "../context/DeckContext";
 import { useTheme } from '../context/ThemeContext'
 import { MoonIcon } from '@heroicons/react/outline'
 
@@ -8,7 +9,8 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const genericHamburgerLine = `h-1 w-8 my-1 rounded-full bg-gray-900 transition ease-in-out duration-300`;
   const router = useRouter()
-  const { darkMode, changeTheme } = useTheme()
+  const { darkMode, changeTheme } = useTheme();
+  const { filterDeck } = useDeck();
 
   let appLogo = 
     <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16" viewBox="0 0 100 100" fill="currentColor" stroke="currentColor">
@@ -68,6 +70,13 @@ export default function Header() {
               <p className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">Add a flash card</p>
             </a>
           </Link>
+
+          <p className="flex font-header text-2xl md:text-3xl">
+            Filter by [&nbsp;
+            <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300" onClick={() => filterDeck('FE')}>FE</p>,&nbsp;
+            <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300" onClick={() => filterDeck('BE')}>BE</p>,&nbsp;
+            <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300" onClick={() => filterDeck('FS')}>FS</p>&nbsp;]
+          </p>
         </nav>
       </header>
 

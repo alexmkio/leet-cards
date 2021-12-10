@@ -4,11 +4,11 @@ import { useTheme } from '../context/ThemeContext'
 import Card from '../components/Card'
 
 export default function Test() {
-  const { deck } = useDeck();
+  const { sorted } = useDeck();
   const { darkMode } = useTheme()
   let interfaceColor = darkMode ? "black" : "#F9A8D4"
   
-  let flashCards = deck.map(card => {
+  let flashCards = sorted.map(card => {
     return (
       <Card key={`${card.id}`} card={card} />
     )
