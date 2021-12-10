@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useTheme } from '../context/ThemeContext'
-import { MoonIcon, PlusIcon } from '@heroicons/react/outline'
+import { MoonIcon } from '@heroicons/react/outline'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,38 +35,30 @@ export default function Header() {
   }
 
   return (
-    <header className="block fixed h-auto z-50 w-full top-0 left-0 p-0 md:p-2 px-6 md:px-40 bg-gray-50 shadow-md dark:bg-gray-700">
+    <header className="block fixed h-auto z-10 w-full top-0 left-0 p-0 md:p-2 px-6 md:px-40 bg-gray-50 shadow-md dark:bg-gray-700">
       <nav className="flex justify-between items-center">
 
         <div className="sm:hidden">
-          <button
+
+          <button onClick={() => setIsOpen(!isOpen)}
             className="flex flex-col h-12 w-12 justify-center items-center group fixed top-0 left-0 m-2 z-10"
-            onClick={() => setIsOpen(!isOpen)}
           >
-            <div
-              className={`${genericHamburgerLine} ${
-                isOpen
-                  ? "rotate-45 translate-y-3 group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
-                  : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
-              }`}
-            />
-            <div
-              className={`${genericHamburgerLine} ${
-                isOpen ? "opacity-0" : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
-              }`}
-            />
-            <div
-              className={`${genericHamburgerLine} ${
-                isOpen
-                  ? "-rotate-45 -translate-y-3 group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
-                  : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
-              }`}
-            />
+            <div className={`${genericHamburgerLine} ${isOpen
+              ? "rotate-45 translate-y-3 group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
+              : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
+            }`}/>
+            <div className={`${genericHamburgerLine}
+              ${isOpen ? "opacity-0" : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"}
+            `}/>
+            <div className={`${genericHamburgerLine} ${isOpen
+              ? "-rotate-45 -translate-y-3 group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
+              : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
+            }`}/>
           </button>
-          <ul className={`${
-            isOpen
-              ? "block fixed visable left-0 top-0 translate-x-0 w-6/12 h-full py-16 bg-gray-50 shadow-md divide-y divide-dashed divide-green-300 transition ease-in-out duration-1000 dark:bg-gray-700"
-              : "block fixed invisible -translate-x-full w-6/12 h-full py-16 bg-gray-50 shadow-md transition ease-in-out duration-1000 dark-bg-gray-700"
+
+          <ul className={`${isOpen
+            ? "block fixed visable left-0 top-0 translate-x-0 w-6/12 h-full py-16 bg-gray-50 divide-y divide-dashed divide-green-300 transition ease-in-out duration-1000 dark:bg-gray-700"
+            : "block fixed invisible -translate-x-full w-6/12 h-full py-16 bg-gray-50 shadow-md transition ease-in-out duration-1000 dark-bg-gray-700"
           }`}>
             <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
               <Link href='/add'>
@@ -97,11 +89,10 @@ export default function Header() {
         {logo}
 
         <div className="hidden sm:block" onClick={() => changeTheme()}>
-          <MoonIcon className={`${
-              darkMode
-                ? "h-12 w-12 transition duration-300 ease-in-out hover:text-yellow-200"
-                : "h-12 w-12 transition duration-300 ease-in-out hover:text-blue-600"
-            }`}/>
+          <MoonIcon className={`${darkMode
+            ? "h-12 w-12 transition duration-300 ease-in-out hover:text-yellow-200"
+            : "h-12 w-12 transition duration-300 ease-in-out hover:text-blue-600"
+          }`}/>
         </div>
 
         <Link href='/add'>
