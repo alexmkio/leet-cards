@@ -73,8 +73,8 @@ export default function Header() {
 
       <nav className="z-10">
         <ul className={`${isOpen
-              ? "inline fixed visable left-0 top-0 translate-x-0 w-9/12 h-full py-20 bg-gray-50 divide-y divide-dashed divide-green-300 transition ease-in-out duration-1000 dark:bg-gray-700"
-              : "inline fixed invisible -translate-x-full w-9/12 h-full py-20 bg-gray-50 shadow-md transition ease-in-out duration-1000 dark-bg-gray-700"
+              ? "shadow-xl inline fixed visable left-0 top-0 translate-x-0 w-9/12 h-full py-20 bg-gray-50 divide-y divide-dashed divide-green-300 transition ease-in-out duration-1000 dark:bg-gray-700"
+              : "shadow-xl inline fixed invisible -translate-x-full w-9/12 h-full py-20 bg-gray-50 transition ease-in-out duration-1000 dark-bg-gray-700"
             }`}>
             <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
               <Link href='/add'>
