@@ -71,44 +71,55 @@ export default function Header() {
             </a>
           </Link>
 
-          <p className="flex font-header text-2xl md:text-3xl">
-            Filter by [&nbsp;
-            <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300" onClick={() => filterDeck('FE')}>FE</p>,&nbsp;
-            <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300" onClick={() => filterDeck('BE')}>BE</p>,&nbsp;
-            <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300" onClick={() => filterDeck('FS')}>FS</p>&nbsp;]
-          </p>
+          <div className="hidden sm:block">
+            <p className="flex font-header text-2xl md:text-3xl">
+              Filter by [&nbsp;
+              <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300" onClick={() => filterDeck('FE')}>FE</p>,&nbsp;
+              <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300" onClick={() => filterDeck('BE')}>BE</p>,&nbsp;
+              <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300" onClick={() => filterDeck('FS')}>FS</p>&nbsp;]
+            </p>
+          </div>
         </nav>
       </header>
 
       <nav className="z-10">
         <ul className={`${isOpen
-              ? "shadow-xl inline fixed visable left-0 top-0 translate-x-0 w-9/12 h-full py-20 bg-gray-50 divide-y divide-dashed divide-green-300 transition ease-in-out duration-1000 dark:bg-gray-700"
-              : "shadow-xl inline fixed invisible -translate-x-full w-9/12 h-full py-20 bg-gray-50 transition ease-in-out duration-1000 dark-bg-gray-700"
-            }`}>
-            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
-              <Link href='/add'>
-                <a>
-                  <p>Add a flash card</p>
-                </a>
-              </Link>
-            </li>
+            ? "shadow-xl inline fixed visable left-0 top-0 translate-x-0 w-9/12 h-full py-20 bg-gray-50 divide-y divide-dashed divide-green-300 transition ease-in-out duration-1000 dark:bg-gray-700"
+            : "shadow-xl inline fixed invisible -translate-x-full w-9/12 h-full py-20 bg-gray-50 transition ease-in-out duration-1000 dark-bg-gray-700"
+          }`}>
+          <li className="p-4 font-header text-2xl">
+            <p className="flex">
+                Filter by [&nbsp;
+                <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300" onClick={() => filterDeck('FE')}>FE</p>,&nbsp;
+                <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300" onClick={() => filterDeck('BE')}>BE</p>,&nbsp;
+                <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300" onClick={() => filterDeck('FS')}>FS</p>&nbsp;]
+              </p>
+          </li>
 
-            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500" onClick={() => changeTheme()}>
-              Toggle theme
-            </li>
-
-            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
-              <a href="https://github.com/alexmkio/leet-cards" target="_blank" rel="noreferrer">
-                The GitHub repo
+          <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
+            <Link href='/add'>
+              <a>
+                <p>Add a flash card</p>
               </a>
-            </li>
+            </Link>
+          </li>
 
-            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
-              <a href="https://www.linkedin.com/in/alexkio/" target="_blank" rel="noreferrer" className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-200">
-                The author&apos;s LinkedIn
-              </a>
-            </li>
-          </ul>
+          <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500" onClick={() => changeTheme()}>
+            Toggle theme
+          </li>
+
+          <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
+            <a href="https://github.com/alexmkio/leet-cards" target="_blank" rel="noreferrer">
+              The GitHub repo
+            </a>
+          </li>
+
+          <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
+            <a href="https://www.linkedin.com/in/alexkio/" target="_blank" rel="noreferrer" className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-200">
+              The author&apos;s LinkedIn
+            </a>
+          </li>
+        </ul>
       </nav>
     </>
   )
