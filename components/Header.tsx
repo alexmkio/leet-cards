@@ -5,7 +5,7 @@ import { useTheme } from '../context/ThemeContext'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const genericHamburgerLine = `h-1 w-8 my-1 rounded-full bg-black transition ease duration-300`;
+  const genericHamburgerLine = `h-1 w-8 my-1 rounded-full bg-gray-900 transition ease-in-out duration-300`;
   const router = useRouter()
   const { darkMode, changeTheme } = useTheme()
 
@@ -25,7 +25,7 @@ export default function Header() {
     logo =
       <Link href='/'>
         <a>
-          <div className="flex items-center pb-2 md:pb-0 transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">
+          <div className="flex items-center pb-2 md:pb-0 transition ease-in-out duration-300 hover:text-red-500 dark:hover:text-green-300">
             {appLogo}
             <h1 className="font-header text-4xl md:text-5xl pl-2 md:pl-4">Leet Code</h1>
           </div>
@@ -78,8 +78,8 @@ export default function Header() {
           </button>
           <ul className={`${
             isOpen
-              ? "block fixed visable top-0 left-0 w-6/12 h-full py-60 bg-gray-900 shadow-md transition duration-300"
-              : "block fixed invisible top-0 -left-full w-6/12 h-full py-60 bg-gray-900 shadow-md transition duration-300"
+              ? "block fixed visable m-0 top-0 left-0 w-6/12 h-full py-24 bg-gray-50 shadow-md transition ease-in-out duration-1000"
+              : "block fixed invisible m-0 top-0 -left-full w-6/12 h-full py-24 bg-gray-50 shadow-md transition ease-in-out duration-1000"
           }`}>
             <li>Link</li>
             <li>Link</li>
