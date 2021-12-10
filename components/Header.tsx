@@ -38,7 +38,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="block fixed h-auto z-20 w-full top-0 left-0 p-0 md:p-2 px-6 md:px-40 bg-gray-50 shadow-md dark:bg-gray-700">
+      <header className="block fixed h-auto z-20 w-full top-0 left-0 p-0 md:p-2 px-6 sm:px-10 md:px-20 lg:px-40 bg-gray-50 shadow-md dark:bg-gray-700">
         <nav className="flex justify-between items-center">
           <button onClick={() => setIsOpen(!isOpen)}
             className="sm:hidden flex flex-col h-12 w-12 justify-center items-center group"
@@ -58,27 +58,30 @@ export default function Header() {
 
           {logo}
 
-          <div className="hidden sm:block" onClick={() => changeTheme()}>
-            <MoonIcon className={`${darkMode
-              ? "h-12 w-12 transition duration-300 ease-in-out hover:text-yellow-200"
-              : "h-12 w-12 transition duration-300 ease-in-out hover:text-blue-600"
-            }`}/>
+          <div className="flex justify-between items-center">
+            <div className="hidden sm:block cursor-pointer" onClick={() => changeTheme()}>
+              <MoonIcon className={`${darkMode
+                ? "h-12 w-12 transition duration-300 ease-in-out hover:text-yellow-200"
+                : "h-12 w-12 transition duration-300 ease-in-out hover:text-blue-600"
+              }`}/>
+            </div>
+
+            <Link href='/add'>
+              <a className="hidden sm:block sm:px-10 md:px-20 lg:px-40">
+                <p className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">Add a flash card</p>
+              </a>
+            </Link>
+
+            <div className="hidden sm:block">
+              <div className="flex font-header text-2xl md:text-3xl">
+                <p>Filter by [&nbsp;</p>
+                <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FE')}>FE</p>,&nbsp;
+                <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('BE')}>BE</p>,&nbsp;
+                <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FS')}>FS</p>&nbsp;]
+              </div>
+            </div>
           </div>
 
-          <Link href='/add'>
-            <a className="hidden sm:block">
-              <p className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">Add a flash card</p>
-            </a>
-          </Link>
-
-          <div className="hidden sm:block">
-            <p className="flex font-header text-2xl md:text-3xl">
-              Filter by [&nbsp;
-              <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300" onClick={() => filterDeck('FE')}>FE</p>,&nbsp;
-              <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300" onClick={() => filterDeck('BE')}>BE</p>,&nbsp;
-              <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300" onClick={() => filterDeck('FS')}>FS</p>&nbsp;]
-            </p>
-          </div>
         </nav>
       </header>
 
@@ -87,13 +90,11 @@ export default function Header() {
             ? "shadow-xl inline fixed visable left-0 top-0 translate-x-0 w-9/12 h-full py-20 bg-gray-50 divide-y divide-dashed divide-green-300 transition ease-in-out duration-1000 dark:bg-gray-700"
             : "shadow-xl inline fixed invisible -translate-x-full w-9/12 h-full py-20 bg-gray-50 transition ease-in-out duration-1000 dark-bg-gray-700"
           }`}>
-          <li className="p-4 font-header text-2xl">
-            <p className="flex">
-                Filter by [&nbsp;
-                <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300" onClick={() => filterDeck('FE')}>FE</p>,&nbsp;
-                <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300" onClick={() => filterDeck('BE')}>BE</p>,&nbsp;
-                <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300" onClick={() => filterDeck('FS')}>FS</p>&nbsp;]
-              </p>
+          <li className="flex p-4 font-header text-2xl">
+              <p>Filter by [&nbsp;</p>
+              <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FE')}>FE</p>,&nbsp;
+              <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('BE')}>BE</p>,&nbsp;
+              <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FS')}>FS</p>&nbsp;]
           </li>
 
           <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
@@ -104,7 +105,7 @@ export default function Header() {
             </Link>
           </li>
 
-          <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500" onClick={() => changeTheme()}>
+          <li className="p-4 font-header text-2xl cursor-pointer transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500" onClick={() => changeTheme()}>
             Toggle theme
           </li>
 
