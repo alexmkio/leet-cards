@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { useDeck } from "../context/DeckContext";
 import { useTheme } from '../context/ThemeContext'
 import { MoonIcon } from '@heroicons/react/outline'
 
@@ -8,7 +9,8 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const genericHamburgerLine = `h-1 w-8 my-1 rounded-full bg-gray-900 transition ease-in-out duration-300`;
   const router = useRouter()
-  const { darkMode, changeTheme } = useTheme()
+  const { darkMode, changeTheme } = useTheme();
+  const { filterDeck } = useDeck();
 
   let appLogo = 
     <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16" viewBox="0 0 100 100" fill="currentColor" stroke="currentColor">
@@ -36,7 +38,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="block fixed h-auto z-20 w-full top-0 left-0 p-0 md:p-2 px-6 md:px-40 bg-gray-50 shadow-md dark:bg-gray-700">
+      <header className="block fixed h-auto z-20 w-full top-0 left-0 p-0 md:p-2 px-6 sm:px-10 md:px-20 lg:px-40 bg-gray-50 shadow-md dark:bg-gray-700">
         <nav className="flex justify-between items-center">
           <button onClick={() => setIsOpen(!isOpen)}
             className="sm:hidden flex flex-col h-12 w-12 justify-center items-center group"
@@ -56,50 +58,69 @@ export default function Header() {
 
           {logo}
 
-          <div className="hidden sm:block" onClick={() => changeTheme()}>
-            <MoonIcon className={`${darkMode
-              ? "h-12 w-12 transition duration-300 ease-in-out hover:text-yellow-200"
-              : "h-12 w-12 transition duration-300 ease-in-out hover:text-blue-600"
-            }`}/>
+          <div className="flex justify-between items-center">
+            <div className="hidden sm:block cursor-pointer" onClick={() => changeTheme()}>
+              <MoonIcon className={`${darkMode
+                ? "h-12 w-12 transition duration-300 ease-in-out hover:text-yellow-200"
+                : "h-12 w-12 transition duration-300 ease-in-out hover:text-blue-600"
+              }`}/>
+            </div>
+
+            <Link href='/add'>
+              <a className="hidden sm:block sm:px-10 md:px-20 lg:px-40">
+                <p className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">Add a flash card</p>
+              </a>
+            </Link>
+
+            <div className="hidden sm:block">
+              <div className="flex font-header text-2xl md:text-3xl">
+                <p>Filter by [&nbsp;</p>
+                <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FE')}>FE</p>,&nbsp;
+                <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('BE')}>BE</p>,&nbsp;
+                <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FS')}>FS</p>&nbsp;]
+              </div>
+            </div>
           </div>
 
-          <Link href='/add'>
-            <a className="hidden sm:block">
-              <p className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">Add a flash card</p>
-            </a>
-          </Link>
         </nav>
       </header>
 
       <nav className="z-10">
         <ul className={`${isOpen
-              ? "inline fixed visable left-0 top-0 translate-x-0 w-9/12 h-full py-20 bg-gray-50 divide-y divide-dashed divide-green-300 transition ease-in-out duration-1000 dark:bg-gray-700"
-              : "inline fixed invisible -translate-x-full w-9/12 h-full py-20 bg-gray-50 shadow-md transition ease-in-out duration-1000 dark-bg-gray-700"
-            }`}>
-            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
-              <Link href='/add'>
-                <a>
-                  <p>Add a flash card</p>
-                </a>
-              </Link>
-            </li>
+            ? "shadow-xl inline fixed visable left-0 top-0 translate-x-0 w-9/12 h-full py-20 bg-gray-50 divide-y divide-dashed divide-green-300 transition ease-in-out duration-1000 dark:bg-gray-700"
+            : "shadow-xl inline fixed invisible -translate-x-full w-9/12 h-full py-20 bg-gray-50 transition ease-in-out duration-1000 dark-bg-gray-700"
+          }`}>
+          <li className="flex p-4 font-header text-2xl">
+              <p>Filter by [&nbsp;</p>
+              <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FE')}>FE</p>,&nbsp;
+              <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('BE')}>BE</p>,&nbsp;
+              <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FS')}>FS</p>&nbsp;]
+          </li>
 
-            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500" onClick={() => changeTheme()}>
-              Toggle theme
-            </li>
-
-            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
-              <a href="https://github.com/alexmkio/leet-cards" target="_blank" rel="noreferrer">
-                The GitHub repo
+          <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
+            <Link href='/add'>
+              <a>
+                <p>Add a flash card</p>
               </a>
-            </li>
+            </Link>
+          </li>
 
-            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
-              <a href="https://www.linkedin.com/in/alexkio/" target="_blank" rel="noreferrer" className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-200">
-                The author&apos;s LinkedIn
-              </a>
-            </li>
-          </ul>
+          <li className="p-4 font-header text-2xl cursor-pointer transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500" onClick={() => changeTheme()}>
+            Toggle theme
+          </li>
+
+          <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
+            <a href="https://github.com/alexmkio/leet-cards" target="_blank" rel="noreferrer">
+              The GitHub repo
+            </a>
+          </li>
+
+          <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
+            <a href="https://www.linkedin.com/in/alexkio/" target="_blank" rel="noreferrer" className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-200">
+              The author&apos;s LinkedIn
+            </a>
+          </li>
+        </ul>
       </nav>
     </>
   )
