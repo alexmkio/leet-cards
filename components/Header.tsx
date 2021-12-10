@@ -76,28 +76,20 @@ export default function Header() {
               </Link>
             </li>
 
-            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
-              <Link href='/add'>
-                <a>
-                  <p>Add a flash card</p>
-                </a>
-              </Link>
+            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500" onClick={() => changeTheme()}>
+              Toggle theme
             </li>
 
             <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
-              <Link href='/add'>
-                <a>
-                  <p>Add a flash card</p>
-                </a>
-              </Link>
+              <a href="https://github.com/alexmkio/leet-cards" target="_blank" rel="noreferrer">
+                The GitHub repo
+              </a>
             </li>
 
             <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
-              <Link href='/add'>
-                <a>
-                  <p>Add a flash card</p>
-                </a>
-              </Link>
+              <a href="https://www.linkedin.com/in/alexkio/" target="_blank" rel="noreferrer" className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-200">
+                The author's LinkedIn
+              </a>
             </li>
           </ul>
         </div>
