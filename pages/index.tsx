@@ -3,13 +3,14 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 const Landing: NextPage = () => {
+  let interfaceColor = "#67E8F9"
+
   return (
     <>
       <Head>
         <title>Leet Cards - A flash card application to help software engineers study</title>
         <meta name="description" content="Leet Cards - A flash card application to help software engineers study" />
-        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#67E8F9" />
-        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
+        <meta name="theme-color" content={interfaceColor} />
       </Head>
 
       <div className="flex justify-center px-4 py-8">

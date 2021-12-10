@@ -4,6 +4,7 @@ import Link from 'next/link'
 
 export default function Header() {
   const [darkMode, setMode] = useState<boolean>(false);
+  const router = useRouter()
 
   useEffect(() => {
     if (localStorage.theme || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -17,7 +18,6 @@ export default function Header() {
     darkMode ? document.documentElement.classList.remove('dark') : document.documentElement.classList.add('dark')
     darkMode ? setMode(false) : setMode(true)
   }
-  const router = useRouter()
 
   let appLogo = 
     <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16" viewBox="0 0 100 100" fill="currentColor" stroke="currentColor">
