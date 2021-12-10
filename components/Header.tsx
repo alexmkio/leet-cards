@@ -48,12 +48,12 @@ export default function Header() {
   }
 
   return (
-    <header className="p-0 md:p-2 px-6 md:px-40 bg-gray-50 shadow-md sticky top-0 z-50 dark:bg-gray-700">
+    <header className="block fixed w-full top-0 left-0 p-0 md:p-2 px-6 md:px-40 bg-gray-50 shadow-md z-50 dark:bg-gray-700">
       <nav className="flex justify-between items-center">
 
         <div className="md:hidden">
           <button
-            className="flex flex-col h-12 w-12 justify-center items-center group fixed top-2 left-2 z-10"
+            className="flex flex-col h-12 w-12 justify-center items-center group fixed top-0 left-0 m-2 z-10"
             onClick={() => setIsOpen(!isOpen)}
           >
             <div
@@ -78,8 +78,8 @@ export default function Header() {
           </button>
           <ul className={`${
             isOpen
-              ? "block fixed visable m-0 top-0 left-0 w-6/12 h-full py-24 bg-gray-50 shadow-md transition ease-in-out duration-1000"
-              : "block fixed invisible m-0 top-0 -left-full w-6/12 h-full py-24 bg-gray-50 shadow-md transition ease-in-out duration-1000"
+              ? "block fixed visable left-0 top-0 translate-x-0 w-6/12 h-full py-24 bg-gray-50 shadow-md transition ease-in-out duration-1000"
+              : "block fixed invisible -translate-x-full w-6/12 h-full py-24 bg-gray-50 shadow-md transition ease-in-out duration-1000"
           }`}>
             <li>Link</li>
             <li>Link</li>
