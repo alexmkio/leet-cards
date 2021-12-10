@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useTheme } from '../context/ThemeContext'
-import { MoonIcon } from '@heroicons/react/outline'
+import { MoonIcon, PlusIcon } from '@heroicons/react/outline'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,13 +65,40 @@ export default function Header() {
           </button>
           <ul className={`${
             isOpen
-              ? "block fixed visable left-0 top-0 translate-x-0 w-6/12 h-full py-24 bg-gray-50 shadow-md transition ease-in-out duration-1000"
-              : "block fixed invisible -translate-x-full w-6/12 h-full py-24 bg-gray-50 shadow-md transition ease-in-out duration-1000"
+              ? "block fixed visable left-0 top-0 translate-x-0 w-6/12 h-full py-16 bg-gray-50 shadow-md divide-y divide-dashed divide-green-300 transition ease-in-out duration-1000 dark:bg-gray-700"
+              : "block fixed invisible -translate-x-full w-6/12 h-full py-16 bg-gray-50 shadow-md transition ease-in-out duration-1000 dark-bg-gray-700"
           }`}>
-            <li>Link</li>
-            <li>Link</li>
-            <li>Link</li>
-            <li>Link</li>
+            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
+              <Link href='/add'>
+                <a>
+                  <p>Add a flash card</p>
+                </a>
+              </Link>
+            </li>
+
+            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
+              <Link href='/add'>
+                <a>
+                  <p>Add a flash card</p>
+                </a>
+              </Link>
+            </li>
+
+            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
+              <Link href='/add'>
+                <a>
+                  <p>Add a flash card</p>
+                </a>
+              </Link>
+            </li>
+
+            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
+              <Link href='/add'>
+                <a>
+                  <p>Add a flash card</p>
+                </a>
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -87,7 +114,7 @@ export default function Header() {
 
         <Link href='/add'>
           <a className="sm:hidden md:block">
-            <h2 className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">Add a flash card</h2>
+            <p className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">Add a flash card</p>
           </a>
         </Link>
 
