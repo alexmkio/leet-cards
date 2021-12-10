@@ -17,8 +17,8 @@ const Landing: NextPage = () => {
       </Head>
 
       <div className="flex justify-center px-4 py-8">
-        <article className="w-11/12 md:w-9/12 lg:w-8/12 xl:w-7/12 flex flex-col">
-          <h2 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-center dark:text-blue-100">
+        <article className="w-11/12 sm:w-9/12 md:w-8/12 lg:w-7/12 flex flex-col">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-center dark:text-blue-100">
             Welcome to Leet Code!
           </h2>
           <p className="text-lg pt-8">

@@ -77,9 +77,9 @@ const Add: NextPage = () => {
         <meta name="theme-color" content={interfaceColor} />
       </Head>
       
-      <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl pt-8 text-center capitalize dark:text-blue-100">Create a new flash card</h2>
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl pt-8 text-center capitalize dark:text-blue-100">Create a new flash card</h2>
       <div className="flex justify-center">
-        <form className="w-11/12 md:w-7/12 lg:w-6/12 xl:w-5/12 flex flex-col">
+        <form className="w-11/12 sm:w-7/12 md:w-6/12 lg:w-5/12 flex flex-col">
 
           <label className="text-lg pt-4 md:pt-8" htmlFor="question">Question:</label>
           <textarea

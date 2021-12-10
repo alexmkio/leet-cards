@@ -3,10 +3,9 @@ module.exports = {
   darkMode: 'class',
   theme: {
     screens: {
-      'sm': '500px',
-      'md': '1100px',
-      'lg': '1400px',
-      'xl': '1880px'
+      'sm': '900px',
+      'md': '1400px',
+      'lg': '1880px'
     },
     extend: {
       fontFamily: {

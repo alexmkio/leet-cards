@@ -46,7 +46,7 @@ export default function EditPost({ card }: Props) {
         <meta name="theme-color" content={interfaceColor} />
       </Head>
       
-      <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl pt-8 text-center capitalize dark:text-blue-100">Edit a flash card</h2>
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl pt-8 text-center capitalize dark:text-blue-100">Edit a flash card</h2>
       <div className="flex flex-col items-center">
         
         <dl className="flex flex-col text-lg pt-8 md:pt-12 text-center">
@@ -54,7 +54,7 @@ export default function EditPost({ card }: Props) {
           <dd className="pt-4">{card.question}</dd>
         </dl>
         
-        <form className="flex flex-col justify-center w-11/12 md:w-8/12 lg:w-6/12 xl:w-5/12">
+        <form className="flex flex-col justify-center w-11/12 sm:w-8/12 md:w-6/12 lg:w-5/12">
           <label className="text-lg pt-8 md:pt-12 text-center dark:text-green-200 dark:border-green-200" htmlFor="answer">Answer:</label>
           <textarea
             className="w-full rounded-lg shadow-sm text-lg border-gray-300 focus:border-red-300 focus:ring focus:ring-red-300 focus:ring-opacity-50 dark:focus:border-green-200 dark:focus:ring-green-200 dark:text-gray-900"
