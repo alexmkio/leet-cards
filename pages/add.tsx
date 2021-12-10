@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import { useState } from 'react';
 import { useDeck } from "../context/DeckContext";
 import { postData } from '../utils/apiCalls';
+import { useTheme } from '../context/ThemeContext'
 
 const Add: NextPage = () => {
   const [question, setQuestion] = useState<string>('');
@@ -12,6 +13,8 @@ const Add: NextPage = () => {
   const [category, setCategory] = useState<string>('');
   const [formError, setFormError] = useState('');
   const { addCard } = useDeck();
+  const { darkMode } = useTheme()
+  let interfaceColor = darkMode ? "black" : "#A7F3D0"
 
   let options = categories.map(category => {
     return (
@@ -70,8 +73,7 @@ const Add: NextPage = () => {
       <Head>
         <title>Leet Cards - Create A Flash Card</title>
         <meta name="description" content="Leet Cards - Create A Flash Card" />
-        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#A7F3D0" />
-        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
+        <meta name="theme-color" content={interfaceColor} />
       </Head>
       
       <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl pt-8 text-center capitalize dark:text-blue-100">Create a new flash card</h2>

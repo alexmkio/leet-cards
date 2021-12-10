@@ -1,25 +1,10 @@
 import { useRouter } from 'next/router'
-import { useState, useEffect } from "react";
 import Link from 'next/link'
 import { useTheme } from '../context/ThemeContext'
 
 export default function Header() {
-  // const [darkMode, setMode] = useState<boolean>(false);
   const router = useRouter()
   const { darkMode, changeTheme } = useTheme()
-
-  // useEffect(() => {
-  //   if (localStorage.theme || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-  //     document.documentElement.classList.add('dark')
-  //     setMode(true)
-  //   }
-  // }, [])
-
-  // const changeTheme = () => {
-  //   localStorage.setItem('theme', JSON.stringify(!darkMode))
-  //   darkMode ? document.documentElement.classList.remove('dark') : document.documentElement.classList.add('dark')
-  //   darkMode ? setMode(false) : setMode(true)
-  // }
 
   let appLogo = 
     <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16" viewBox="0 0 100 100" fill="currentColor" stroke="currentColor">
