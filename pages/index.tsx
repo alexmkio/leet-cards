@@ -8,7 +8,8 @@ const Landing: NextPage = () => {
       <Head>
         <title>Leet Cards - A flash card application to help software engineers study</title>
         <meta name="description" content="Leet Cards - A flash card application to help software engineers study" />
-        <meta name="theme-color" content="#67E8F9" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#67E8F9" />
+        <meta name="theme-color" media="(localStorage.theme || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches))" content="black" />
       </Head>
 
       <div className="flex justify-center px-4 py-8">

@@ -16,7 +16,8 @@ export default function Test() {
       <Head>
         <title>Leet Cards - Study the flash cards</title>
         <meta name="description" content="Leet Cards - Study the flash cards" />
-        <meta name="theme-color" content="#F9A8D4" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F9A8D4" />
+        <meta name="theme-color" media="(localStorage.theme || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches))" content="black" />
       </Head>
 
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center gap-4 lg:gap-8 p-4 lg:p-8">

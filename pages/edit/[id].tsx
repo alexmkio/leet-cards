@@ -39,7 +39,8 @@ export default function EditPost({ card }: Props) {
       <Head>
         <title>Leet Cards - Edit A Flash Card</title>
         <meta name="description" content="Leet Cards - Edit A Flash Card" />
-        <meta name="theme-color" content="#D9F99D" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#D9F99D" />
+        <meta name="theme-color" media="(localStorage.theme || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches))" content="black" />
       </Head>
       
       <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl pt-8 text-center capitalize dark:text-blue-100">Edit a flash card</h2>
