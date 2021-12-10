@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import { getData, putData } from '../../utils/apiCalls'
 import { CardType } from '../../types/index'
 import { useDeck } from "../../context/DeckContext";
+import { useTheme } from '../../context/ThemeContext'
 
 type Props = {
   card: CardType
@@ -15,7 +16,9 @@ export default function EditPost({ card }: Props) {
   const [formError, setFormError] = useState('');
   const { updateCard } = useDeck();
   const router = useRouter()
-
+  const { darkMode } = useTheme()
+  let interfaceColor = darkMode ? "black" : "#D9F99D"
+  
   const putFlashCard = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
     if (answer === card.answer) {
@@ -39,8 +42,7 @@ export default function EditPost({ card }: Props) {
       <Head>
         <title>Leet Cards - Edit A Flash Card</title>
         <meta name="description" content="Leet Cards - Edit A Flash Card" />
-        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#D9F99D" />
-        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
+        <meta name="theme-color" content={interfaceColor} />
       </Head>
       
       <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl pt-8 text-center capitalize dark:text-blue-100">Edit a flash card</h2>
