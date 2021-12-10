@@ -1,9 +1,11 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import { useTheme } from '../context/ThemeContext'
 
 const Landing: NextPage = () => {
-  let interfaceColor = "#67E8F9"
+  const { darkMode } = useTheme()
+  let interfaceColor = darkMode ? "black" : "#67E8F9"
 
   return (
     <>
