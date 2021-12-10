@@ -1,8 +1,12 @@
+import { useState } from 'react';
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useTheme } from '../context/ThemeContext'
+import { MoonIcon } from '@heroicons/react/outline'
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const genericHamburgerLine = `h-1 w-8 my-1 rounded-full bg-gray-900 transition ease-in-out duration-300`;
   const router = useRouter()
   const { darkMode, changeTheme } = useTheme()
 
@@ -14,7 +18,7 @@ export default function Header() {
   let logo
   if (router.pathname === "/") {
     logo = 
-      <div className="flex items-center pb-2 md:pb-0">
+      <div className="flex items-center">
         {appLogo}
         <h1 className="font-header text-4xl md:text-5xl pl-2 md:pl-4">Leet Code</h1>
       </div>
@@ -22,7 +26,7 @@ export default function Header() {
     logo =
       <Link href='/'>
         <a>
-          <div className="flex items-center pb-2 md:pb-0 transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">
+          <div className="flex items-center pb-2 md:pb-0 transition ease-in-out duration-300 hover:text-red-500 dark:hover:text-green-300">
             {appLogo}
             <h1 className="font-header text-4xl md:text-5xl pl-2 md:pl-4">Leet Code</h1>
           </div>
@@ -30,31 +34,73 @@ export default function Header() {
       </Link>
   }
 
-
-  let modeIcon
-  if (darkMode) {
-    modeIcon = 
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 transition duration-300 ease-in-out hover:text-yellow-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-      </svg>
-  } else {
-    modeIcon =
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 transition duration-300 ease-in-out hover:text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-      </svg>
-  }
-
   return (
-    <header className="flex flex-col md:flex-row md:justify-between items-center p-1 md:p-2 md:px-40 bg-gray-50 shadow-md sticky top-0 z-50 dark:bg-gray-700">
-      {logo}
-      <div onClick={() => changeTheme()}>
-        {modeIcon}
-      </div>
-      <Link href='/add'>
-        <a>
-          <h2 className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">Add a flash card</h2>
-        </a>
-      </Link>
-    </header>
+    <>
+      <header className="block fixed h-auto z-20 w-full top-0 left-0 p-0 md:p-2 px-6 md:px-40 bg-gray-50 shadow-md dark:bg-gray-700">
+        <nav className="flex justify-between items-center">
+          <button onClick={() => setIsOpen(!isOpen)}
+            className="sm:hidden flex flex-col h-12 w-12 justify-center items-center group"
+          >
+            <div className={`${genericHamburgerLine} ${isOpen
+              ? "rotate-45 translate-y-3 group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
+              : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
+            }`}/>
+            <div className={`${genericHamburgerLine}
+              ${isOpen ? "opacity-0" : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"}
+            `}/>
+            <div className={`${genericHamburgerLine} ${isOpen
+              ? "-rotate-45 -translate-y-3 group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
+              : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
+            }`}/>
+          </button>
+
+          {logo}
+
+          <div className="hidden sm:block" onClick={() => changeTheme()}>
+            <MoonIcon className={`${darkMode
+              ? "h-12 w-12 transition duration-300 ease-in-out hover:text-yellow-200"
+              : "h-12 w-12 transition duration-300 ease-in-out hover:text-blue-600"
+            }`}/>
+          </div>
+
+          <Link href='/add'>
+            <a className="hidden sm:block">
+              <p className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">Add a flash card</p>
+            </a>
+          </Link>
+        </nav>
+      </header>
+
+      <nav className="z-10">
+        <ul className={`${isOpen
+              ? "inline fixed visable left-0 top-0 translate-x-0 w-9/12 h-full py-20 bg-gray-50 divide-y divide-dashed divide-green-300 transition ease-in-out duration-1000 dark:bg-gray-700"
+              : "inline fixed invisible -translate-x-full w-9/12 h-full py-20 bg-gray-50 shadow-md transition ease-in-out duration-1000 dark-bg-gray-700"
+            }`}>
+            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
+              <Link href='/add'>
+                <a>
+                  <p>Add a flash card</p>
+                </a>
+              </Link>
+            </li>
+
+            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500" onClick={() => changeTheme()}>
+              Toggle theme
+            </li>
+
+            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
+              <a href="https://github.com/alexmkio/leet-cards" target="_blank" rel="noreferrer">
+                The GitHub repo
+              </a>
+            </li>
+
+            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
+              <a href="https://www.linkedin.com/in/alexkio/" target="_blank" rel="noreferrer" className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-200">
+                The author&apos;s LinkedIn
+              </a>
+            </li>
+          </ul>
+      </nav>
+    </>
   )
 }

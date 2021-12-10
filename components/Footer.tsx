@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 flex justify-between items-center p-2 md:px-40 dark:bg-gray-700">
+    <footer className="hidden sm:inline-flex bg-gray-50 justify-between items-center p-2 px-6 md:px-40 dark:bg-gray-700">
       <h2 className="font-header text-2xl md:text-3xl text-center">
         Built by:&nbsp;
         <a href="https://www.linkedin.com/in/alexkio/" target="_blank" rel="noreferrer" className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-200">
