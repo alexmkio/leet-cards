@@ -45,17 +45,19 @@ export default function Header() {
   }
 
   return (
-    <header className="flex justify-between items-center p-0 md:p-2 px-6 md:px-40 bg-gray-50 shadow-md sticky top-0 z-50 dark:bg-gray-700">
-      <div className="md:hidden">hamburger</div>
-      {logo}
-      <div className="sm:hidden md:block" onClick={() => changeTheme()}>
-        {modeIcon}
-      </div>
-      <Link href='/add'>
-        <a className="sm:hidden md:block">
-          <h2 className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">Add a flash card</h2>
-        </a>
-      </Link>
+    <header className="p-0 md:p-2 px-6 md:px-40 bg-gray-50 shadow-md sticky top-0 z-50 dark:bg-gray-700">
+      <nav className="flex justify-between items-center">
+        <div className="md:hidden">hamburger</div>
+        {logo}
+        <div className="sm:hidden md:block" onClick={() => changeTheme()}>
+          {modeIcon}
+        </div>
+        <Link href='/add'>
+          <a className="sm:hidden md:block">
+            <h2 className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">Add a flash card</h2>
+          </a>
+        </Link>
+      </nav>
     </header>
   )
 }
