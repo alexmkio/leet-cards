@@ -24,26 +24,22 @@ export default function Header() {
       </div>
   } else {
     logo =
-      <div className="z-50">
-        <Link href='/'>
-          <a>
-            <div className="flex items-center pb-2 md:pb-0 transition ease-in-out duration-300 hover:text-red-500 dark:hover:text-green-300">
-              {appLogo}
-              <h1 className="font-header text-4xl md:text-5xl pl-2 md:pl-4">Leet Code</h1>
-            </div>
-          </a>
-        </Link>
-      </div>
+      <Link href='/'>
+        <a>
+          <div className="flex items-center pb-2 md:pb-0 transition ease-in-out duration-300 hover:text-red-500 dark:hover:text-green-300">
+            {appLogo}
+            <h1 className="font-header text-4xl md:text-5xl pl-2 md:pl-4">Leet Code</h1>
+          </div>
+        </a>
+      </Link>
   }
 
   return (
-    <header className="block fixed h-auto z-10 w-full top-0 left-0 p-0 md:p-2 px-6 md:px-40 bg-gray-50 shadow-md dark:bg-gray-700">
-      <nav className="flex justify-between items-center">
-
-        <div className="sm:hidden">
-
+    <>
+      <header className="block fixed h-auto z-20 w-full top-0 left-0 p-0 md:p-2 px-6 md:px-40 bg-gray-50 shadow-md dark:bg-gray-700">
+        <nav className="flex justify-between items-center">
           <button onClick={() => setIsOpen(!isOpen)}
-            className="flex flex-col h-12 w-12 justify-center items-center group fixed top-0 left-0 m-2 z-10"
+            className="sm:hidden flex flex-col h-12 w-12 justify-center items-center group"
           >
             <div className={`${genericHamburgerLine} ${isOpen
               ? "rotate-45 translate-y-3 group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
@@ -58,10 +54,28 @@ export default function Header() {
             }`}/>
           </button>
 
-          <ul className={`${isOpen
-            ? "inline fixed visable left-0 top-0 translate-x-0 w-9/12 h-full py-16 bg-gray-50 divide-y divide-dashed divide-green-300 transition ease-in-out duration-1000 dark:bg-gray-700"
-            : "inline fixed invisible -translate-x-full w-9/12 h-full py-16 bg-gray-50 shadow-md transition ease-in-out duration-1000 dark-bg-gray-700"
-          }`}>
+          {logo}
+
+          <div className="hidden sm:block" onClick={() => changeTheme()}>
+            <MoonIcon className={`${darkMode
+              ? "h-12 w-12 transition duration-300 ease-in-out hover:text-yellow-200"
+              : "h-12 w-12 transition duration-300 ease-in-out hover:text-blue-600"
+            }`}/>
+          </div>
+
+          <Link href='/add'>
+            <a className="hidden sm:block">
+              <p className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">Add a flash card</p>
+            </a>
+          </Link>
+        </nav>
+      </header>
+
+      <nav className="z-10">
+        <ul className={`${isOpen
+              ? "inline fixed visable left-0 top-0 translate-x-0 w-9/12 h-full py-20 bg-gray-50 divide-y divide-dashed divide-green-300 transition ease-in-out duration-1000 dark:bg-gray-700"
+              : "inline fixed invisible -translate-x-full w-9/12 h-full py-20 bg-gray-50 shadow-md transition ease-in-out duration-1000 dark-bg-gray-700"
+            }`}>
             <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
               <Link href='/add'>
                 <a>
@@ -86,24 +100,7 @@ export default function Header() {
               </a>
             </li>
           </ul>
-        </div>
-
-        {logo}
-
-        <div className="hidden sm:block" onClick={() => changeTheme()}>
-          <MoonIcon className={`${darkMode
-            ? "h-12 w-12 transition duration-300 ease-in-out hover:text-yellow-200"
-            : "h-12 w-12 transition duration-300 ease-in-out hover:text-blue-600"
-          }`}/>
-        </div>
-
-        <Link href='/add'>
-          <a className="hidden sm:block">
-            <p className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">Add a flash card</p>
-          </a>
-        </Link>
-
       </nav>
-    </header>
+    </>
   )
 }
