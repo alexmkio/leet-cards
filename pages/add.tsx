@@ -71,7 +71,7 @@ const Add: NextPage = () => {
         <title>Leet Cards - Create A Flash Card</title>
         <meta name="description" content="Leet Cards - Create A Flash Card" />
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="#A7F3D0" />
-        <meta name="theme-color" media="(localStorage.theme || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches))" content="black" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
       </Head>
       
       <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl pt-8 text-center capitalize dark:text-blue-100">Create a new flash card</h2>
