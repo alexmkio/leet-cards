@@ -5,7 +5,7 @@ import { useTheme } from '../context/ThemeContext'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-black transition ease transform duration-300`;
+  const genericHamburgerLine = `h-1 w-8 my-1 rounded-full bg-black transition ease duration-300`;
   const router = useRouter()
   const { darkMode, changeTheme } = useTheme()
 
@@ -50,39 +50,56 @@ export default function Header() {
   return (
     <header className="p-0 md:p-2 px-6 md:px-40 bg-gray-50 shadow-md sticky top-0 z-50 dark:bg-gray-700">
       <nav className="flex justify-between items-center">
-        <button
-          className="md:hidden flex flex-col h-12 w-12 justify-center items-center group"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <div
-            className={`${genericHamburgerLine} ${
-              isOpen
-                ? "rotate-45 translate-y-3 group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
-                : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
-            }`}
-          />
-          <div
-            className={`${genericHamburgerLine} ${
-              isOpen ? "opacity-0" : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
-            }`}
-          />
-          <div
-            className={`${genericHamburgerLine} ${
-              isOpen
-                ? "-rotate-45 -translate-y-3 group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
-                : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
-            }`}
-          />
-        </button>
+
+        <div className="md:hidden">
+          <button
+            className="flex flex-col h-12 w-12 justify-center items-center group"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <div
+              className={`${genericHamburgerLine} ${
+                isOpen
+                  ? "rotate-45 translate-y-3 group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
+                  : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
+              }`}
+            />
+            <div
+              className={`${genericHamburgerLine} ${
+                isOpen ? "opacity-0" : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
+              }`}
+            />
+            <div
+              className={`${genericHamburgerLine} ${
+                isOpen
+                  ? "-rotate-45 -translate-y-3 group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
+                  : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
+              }`}
+            />
+          </button>
+          <ul className={`${
+            isOpen
+              ? "block"
+              : "hidden"
+          }`}>
+            <li>Link</li>
+            <li>Link</li>
+            <li>Link</li>
+            <li>Link</li>
+          </ul>
+        </div>
+
         {logo}
+
         <div className="sm:hidden md:block" onClick={() => changeTheme()}>
           {modeIcon}
         </div>
+
         <Link href='/add'>
           <a className="sm:hidden md:block">
             <h2 className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">Add a flash card</h2>
           </a>
         </Link>
+
       </nav>
     </header>
   )
