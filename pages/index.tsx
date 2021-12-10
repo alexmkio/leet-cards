@@ -35,7 +35,7 @@ const Landing: NextPage = () => {
               <a>
                 <button className="flex items-center text-lg md:text-xl rounded-full py-2 px-9 transition duration-500 ease-in-out bg-red-300 hover:bg-red-400 hover:scale-110 hover:shadow-2xl hover:text-blueGray-100 dark:bg-blue-200 dark:hover:bg-blue-300 dark:text-gray-900">
                   <p>Enter</p>
-                  <ArrowNarrowRightIcon className="h-12 w-12 ml-2"/>
+                  <ArrowNarrowRightIcon className="h-12 w-12 ml-2 animate-pulse"/>
                 </button>
               </a>
             </Link>
