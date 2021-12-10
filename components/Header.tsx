@@ -53,7 +53,7 @@ export default function Header() {
 
         <div className="md:hidden">
           <button
-            className="flex flex-col h-12 w-12 justify-center items-center group"
+            className="flex flex-col h-12 w-12 justify-center items-center group fixed top-2 left-2 z-10"
             onClick={() => setIsOpen(!isOpen)}
           >
             <div
@@ -78,8 +78,8 @@ export default function Header() {
           </button>
           <ul className={`${
             isOpen
-              ? "block"
-              : "hidden"
+              ? "block fixed visable top-0 left-0 w-6/12 h-full py-60 bg-gray-900 shadow-md transition duration-300"
+              : "block fixed invisible top-0 -left-full w-6/12 h-full py-60 bg-gray-900 shadow-md transition duration-300"
           }`}>
             <li>Link</li>
             <li>Link</li>
