@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useTheme } from '../context/ThemeContext'
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-black transition ease transform duration-300`;
   const router = useRouter()
   const { darkMode, changeTheme } = useTheme()
 
@@ -47,7 +50,30 @@ export default function Header() {
   return (
     <header className="p-0 md:p-2 px-6 md:px-40 bg-gray-50 shadow-md sticky top-0 z-50 dark:bg-gray-700">
       <nav className="flex justify-between items-center">
-        <div className="md:hidden">hamburger</div>
+        <button
+          className="md:hidden flex flex-col h-12 w-12 justify-center items-center group"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <div
+            className={`${genericHamburgerLine} ${
+              isOpen
+                ? "rotate-45 translate-y-3 group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
+                : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
+            }`}
+          />
+          <div
+            className={`${genericHamburgerLine} ${
+              isOpen ? "opacity-0" : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
+            }`}
+          />
+          <div
+            className={`${genericHamburgerLine} ${
+              isOpen
+                ? "-rotate-45 -translate-y-3 group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
+                : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
+            }`}
+          />
+        </button>
         {logo}
         <div className="sm:hidden md:block" onClick={() => changeTheme()}>
           {modeIcon}
