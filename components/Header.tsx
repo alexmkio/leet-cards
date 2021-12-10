@@ -14,7 +14,7 @@ export default function Header() {
   let logo
   if (router.pathname === "/") {
     logo = 
-      <div className="flex items-center pb-2 md:pb-0">
+      <div className="flex items-center">
         {appLogo}
         <h1 className="font-header text-4xl md:text-5xl pl-2 md:pl-4">Leet Code</h1>
       </div>
@@ -45,13 +45,14 @@ export default function Header() {
   }
 
   return (
-    <header className="flex flex-col md:flex-row md:justify-between items-center p-1 md:p-2 md:px-40 bg-gray-50 shadow-md sticky top-0 z-50 dark:bg-gray-700">
+    <header className="flex justify-between items-center p-0 md:p-2 px-6 md:px-40 bg-gray-50 shadow-md sticky top-0 z-50 dark:bg-gray-700">
+      <div className="md:hidden">hamburger</div>
       {logo}
-      <div onClick={() => changeTheme()}>
+      <div className="sm:hidden md:block" onClick={() => changeTheme()}>
         {modeIcon}
       </div>
       <Link href='/add'>
-        <a>
+        <a className="sm:hidden md:block">
           <h2 className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">Add a flash card</h2>
         </a>
       </Link>
