@@ -88,7 +88,7 @@ export default function Header() {
 
             <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
               <a href="https://www.linkedin.com/in/alexkio/" target="_blank" rel="noreferrer" className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-200">
-                The author's LinkedIn
+                The author&apos;s LinkedIn
               </a>
             </li>
           </ul>
