@@ -35,10 +35,10 @@ export default function Header() {
   }
 
   return (
-    <header className="block fixed w-full top-0 left-0 p-0 md:p-2 px-6 md:px-40 bg-gray-50 shadow-md z-50 dark:bg-gray-700">
+    <header className="block fixed h-auto z-50 w-full top-0 left-0 p-0 md:p-2 px-6 md:px-40 bg-gray-50 shadow-md dark:bg-gray-700">
       <nav className="flex justify-between items-center">
 
-        <div className="md:hidden">
+        <div className="sm:hidden">
           <button
             className="flex flex-col h-12 w-12 justify-center items-center group fixed top-0 left-0 m-2 z-10"
             onClick={() => setIsOpen(!isOpen)}
@@ -96,7 +96,7 @@ export default function Header() {
 
         {logo}
 
-        <div className="sm:hidden md:block" onClick={() => changeTheme()}>
+        <div className="hidden sm:block" onClick={() => changeTheme()}>
           <MoonIcon className={`${
               darkMode
                 ? "h-12 w-12 transition duration-300 ease-in-out hover:text-yellow-200"
@@ -105,7 +105,7 @@ export default function Header() {
         </div>
 
         <Link href='/add'>
-          <a className="sm:hidden md:block">
+          <a className="hidden sm:block">
             <p className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">Add a flash card</p>
           </a>
         </Link>
