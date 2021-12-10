@@ -24,14 +24,16 @@ export default function Header() {
       </div>
   } else {
     logo =
-      <Link href='/'>
-        <a>
-          <div className="flex items-center pb-2 md:pb-0 transition ease-in-out duration-300 hover:text-red-500 dark:hover:text-green-300">
-            {appLogo}
-            <h1 className="font-header text-4xl md:text-5xl pl-2 md:pl-4">Leet Code</h1>
-          </div>
-        </a>
-      </Link>
+      <div className="z-50">
+        <Link href='/'>
+          <a>
+            <div className="flex items-center pb-2 md:pb-0 transition ease-in-out duration-300 hover:text-red-500 dark:hover:text-green-300">
+              {appLogo}
+              <h1 className="font-header text-4xl md:text-5xl pl-2 md:pl-4">Leet Code</h1>
+            </div>
+          </a>
+        </Link>
+      </div>
   }
 
   return (
@@ -57,8 +59,8 @@ export default function Header() {
           </button>
 
           <ul className={`${isOpen
-            ? "block fixed visable left-0 top-0 translate-x-0 w-6/12 h-full py-16 bg-gray-50 divide-y divide-dashed divide-green-300 transition ease-in-out duration-1000 dark:bg-gray-700"
-            : "block fixed invisible -translate-x-full w-6/12 h-full py-16 bg-gray-50 shadow-md transition ease-in-out duration-1000 dark-bg-gray-700"
+            ? "inline fixed visable left-0 top-0 translate-x-0 w-9/12 h-full py-16 bg-gray-50 divide-y divide-dashed divide-green-300 transition ease-in-out duration-1000 dark:bg-gray-700"
+            : "inline fixed invisible -translate-x-full w-9/12 h-full py-16 bg-gray-50 shadow-md transition ease-in-out duration-1000 dark-bg-gray-700"
           }`}>
             <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
               <Link href='/add'>
