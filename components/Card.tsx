@@ -13,6 +13,12 @@ export default function Card({ card }: Props) {
   const { removeCard } = useDeck();
   const cardColor = card.side === 'BE' ? 'bg-teal-300 border-teal-300 dark:bg-stone-700 dark:border-stone-700' : 'bg-pink-300 border-pink-300 dark:bg-slate-700 dark:border-slate-700'
 
+  const answer = card.answer.split('<br>').map((item, index) => {
+    return (
+      <p key={index}>{item}</p>
+    )
+  })
+
   const deleteCard = async () => {
     let response = await deleteData(card.id)
     if (response === "The card has been deleted!") {
@@ -54,7 +60,7 @@ export default function Card({ card }: Props) {
         >
           <dl className="flex flex-col items-center">
             <dt className="px-4 pb-1 border-b border-gray-800 dark:text-green-200 dark:border-green-200">Answer:</dt>
-            <dd className="pt-4 text-center">{card.answer}</dd>
+            <dd className="pt-4 text-center">{answer}</dd>
           </dl>
 
           <div className="flex justify-around">

@@ -50,7 +50,7 @@ const Add: NextPage = () => {
     if (question && answer && stack && categories.length) {
       let response = await postData({
         question: question,
-        answer: answer,
+        answer: answer.replace(/\r?\n/g, '<br>'),
         side: stack,
         categories: categories
       })
