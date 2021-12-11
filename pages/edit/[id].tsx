@@ -26,12 +26,12 @@ export default function EditPost({ card }: Props) {
       setFormError('Sorry, change the answer first!')
     } else {
       let response = await putData(card.id, {
-        answer: answer.replace(/\r?\n/g, '<br>',
+        answer: answer.replace(/\r?\n/g, '<br>'),
       })
       //shore up conditional logic here: should be = if success (not error) do this
       if (response === 'The answer was updated!') {
         updateCard(card.id, {
-          answer: answer.replace(/\r?\n/g, '<br>',
+          answer: answer.replace(/\r?\n/g, '<br>'),
         })
         router.push('/study')
       }
