@@ -4,7 +4,7 @@ import { getData } from '../utils/apiCalls'
 
 type deckContextType = {
   deck: CardType[];
-  sorted: CardType[];
+  sortedDeck: CardType[];
   addCard: (card: CardType) => void;
   updateCard: (id: Number | undefined, putObject: PutObject) => void;
   removeCard: (card: CardType) => void;
@@ -13,7 +13,7 @@ type deckContextType = {
 
 const deckContextDefaultValues: deckContextType = {
   deck: [],
-  sorted: [],
+  sortedDeck: [],
   addCard: (card) => {},
   updateCard: (id, putObject) => {},
   removeCard: (card) => {},
@@ -28,7 +28,7 @@ type Props = {
 
 export function DeckProvider({ children }: Props) {
   const [deck, setDeck] = useState<CardType[]>([]);
-  const [sorted, setSorted] = useState<CardType[]>([]);
+  const [sortedDeck, setSorted] = useState<CardType[]>([]);
 
   const fetchDeck = async () => {
     try {
@@ -75,7 +75,7 @@ export function DeckProvider({ children }: Props) {
 
   const value = {
     deck,
-    sorted,
+    sortedDeck,
     addCard,
     updateCard,
     removeCard,
