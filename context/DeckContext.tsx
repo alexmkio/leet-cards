@@ -4,7 +4,8 @@ import { getData } from '../utils/apiCalls'
 
 type deckContextType = {
   deck: CardType[];
-  sorted: CardType[];
+  sortedDeck: CardType[];
+  filter: string;
   addCard: (card: CardType) => void;
   updateCard: (id: Number | undefined, putObject: PutObject) => void;
   removeCard: (card: CardType) => void;
@@ -13,7 +14,8 @@ type deckContextType = {
 
 const deckContextDefaultValues: deckContextType = {
   deck: [],
-  sorted: [],
+  sortedDeck: [],
+  filter: '',
   addCard: (card) => {},
   updateCard: (id, putObject) => {},
   removeCard: (card) => {},
@@ -28,7 +30,8 @@ type Props = {
 
 export function DeckProvider({ children }: Props) {
   const [deck, setDeck] = useState<CardType[]>([]);
-  const [sorted, setSorted] = useState<CardType[]>([]);
+  const [sortedDeck, setSorted] = useState<CardType[]>([]);
+  const [filter, setFilter] = useState<string>('FS');
 
   const fetchDeck = async () => {
     try {
@@ -47,6 +50,7 @@ export function DeckProvider({ children }: Props) {
 
   const addCard = (card: CardType) => {
     setDeck([...deck, card])
+    filterDeck(filter)
   }
 
   const updateCard = (id: Number | undefined, putObject: PutObject) => {
@@ -54,6 +58,7 @@ export function DeckProvider({ children }: Props) {
     let currentDeck = deck
     currentDeck[ind].answer = putObject.answer
     setDeck([...currentDeck])
+    filterDeck(filter)
   }
 
   const removeCard = (card: CardType) => {
@@ -61,9 +66,11 @@ export function DeckProvider({ children }: Props) {
     let currentDeck = deck
     currentDeck.splice(ind, 1)
     setDeck([...currentDeck])
+    filterDeck(filter)
   }
 
   const filterDeck = (stack: string) => {
+    setFilter(stack)
     if (stack === 'FS') {
       setSorted(deck)
     } else {
@@ -75,7 +82,8 @@ export function DeckProvider({ children }: Props) {
 
   const value = {
     deck,
-    sorted,
+    sortedDeck,
+    filter,
     addCard,
     updateCard,
     removeCard,
