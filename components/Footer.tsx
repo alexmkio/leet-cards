@@ -1,4 +1,6 @@
-export default function Footer() {
+import type { NextPage } from 'next'
+
+const Footer: NextPage = () => {
   return (
     <footer className="hidden sm:inline-flex bg-gray-50 justify-between items-center p-2 px-6 sm:px-10 md:px-20 lg:px-40 dark:bg-gray-700">
       <p className="font-header text-2xl md:text-3xl text-center">
@@ -17,3 +19,5 @@ export default function Footer() {
     </footer>
   )
 }
+
+export default Footer

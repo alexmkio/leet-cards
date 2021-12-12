@@ -1,5 +1,5 @@
-import Head from 'next/head'
 import { GetStaticProps, GetStaticPaths } from 'next'
+import Head from 'next/head'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { getData, putData } from '../../utils/apiCalls'

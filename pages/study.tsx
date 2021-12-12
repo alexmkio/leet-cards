@@ -1,9 +1,10 @@
+import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useDeck } from "../context/DeckContext"
 import { useTheme } from '../context/ThemeContext'
 import Card from '../components/Card'
 
-export default function Test() {
+const Study: NextPage = () => {
   const { sortedDeck } = useDeck()
   const { darkMode } = useTheme()
   let interfaceColor = darkMode ? "black" : "#F9A8D4"
@@ -28,3 +29,5 @@ export default function Test() {
     </>
   )
 }
+
+export default Study
