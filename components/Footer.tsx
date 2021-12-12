@@ -1,12 +1,12 @@
 export default function Footer() {
   return (
     <footer className="hidden sm:inline-flex bg-gray-50 justify-between items-center p-2 px-6 sm:px-10 md:px-20 lg:px-40 dark:bg-gray-700">
-      <h2 className="font-header text-2xl md:text-3xl text-center">
+      <p className="font-header text-2xl md:text-3xl text-center">
         Built by:&nbsp;
         <a href="https://www.linkedin.com/in/alexkio/" target="_blank" rel="noreferrer" className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-200">
           Alex Kio
         </a>
-      </h2>
+      </p>
       <div className="w-12 md:w-16">
         <a href="https://github.com/alexmkio/leet-cards" target="_blank" rel="noreferrer">
           <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300" fill="none" viewBox="0 0 1024 1024">

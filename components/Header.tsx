@@ -1,16 +1,16 @@
-import { useState } from 'react';
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { useDeck } from "../context/DeckContext";
+import { useDeck } from "../context/DeckContext"
 import { useTheme } from '../context/ThemeContext'
 import { MoonIcon, SunIcon } from '@heroicons/react/outline'
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-  const genericHamburgerLine = `h-1 w-8 my-1 rounded-full bg-gray-900 transition ease-in-out duration-300`;
+  const [isOpen, setIsOpen] = useState(false)
+  const genericHamburgerLine = `h-1 w-8 my-1 rounded-full bg-gray-900 transition ease-in-out duration-300`
   const router = useRouter()
-  const { darkMode, changeTheme } = useTheme();
-  const { filterDeck } = useDeck();
+  const { darkMode, changeTheme } = useTheme()
+  const { filterDeck } = useDeck()
 
   let appLogo = 
     <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16" viewBox="0 0 100 100" fill="currentColor" stroke="currentColor">
@@ -40,42 +40,41 @@ export default function Header() {
       <nav className="fixed top-0 left-0 w-full bg-gray-50 z-10 shadow-md flex items-center justify-between px-6 sm:px-10 md:px-20 lg:px-40 dark:bg-gray-700">
 
         <div className="relative inline-block sm:hidden">
-          <button onClick={() => setIsOpen(!isOpen)}
-            className="sm:hidden flex flex-col justify-center items-center group"
-          >
+          <button onClick={() => setIsOpen(!isOpen)} className="sm:hidden flex flex-col justify-center items-center group">
             <div className={`${genericHamburgerLine} ${isOpen
               ? "rotate-45 translate-y-3 group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
-              : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
-            }`}/>
-            <div className={`${genericHamburgerLine}
-              ${isOpen ? "opacity-0" : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"}
-            `}/>
+              : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"}`}/>
+            <div className={`${genericHamburgerLine} ${isOpen ? "opacity-0" : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"}`}/>
             <div className={`${genericHamburgerLine} ${isOpen
               ? "-rotate-45 -translate-y-3 group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
-              : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
-            }`}/>
+              : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"}`}/>
           </button>
           <ul className={`${isOpen
-              ? "top-12 -left-6 absolute z-10 translate-x-0 w-80 h-screen bg-gray-50 divide-y divide-dashed divide-green-300 transition ease-in-out duration-1000 dark:bg-gray-700"
-              : "top-12 -left-6 absolute z-10 -translate-x-96 w-80 h-screen bg-gray-50 transition ease-in-out duration-1000 dark-bg-gray-700"
-            }`}>
+            ? "top-12 -left-6 absolute z-10 translate-x-0 w-80 h-screen bg-gray-50 divide-y divide-dashed divide-green-300 transition ease-in-out duration-1000 dark:bg-gray-700"
+            : "top-12 -left-6 absolute z-10 -translate-x-96 w-80 h-screen bg-gray-50 transition ease-in-out duration-1000 dark-bg-gray-700"}`}>
             <li className="flex mt-4 p-4 font-header text-2xl">
               <p>Filter by [&nbsp;</p>
               <Link href='/study'>
                 <a onClick={() => setIsOpen(!isOpen)}>
-                  <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FE')}>FE</p>
+                  <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FE')}>
+                    FE
+                  </p>
                 </a>
               </Link>
               ,&nbsp;
               <Link href='/study'>
                 <a onClick={() => setIsOpen(!isOpen)}>
-                  <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('BE')}>BE</p>
+                  <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('BE')}>
+                    BE
+                  </p>
                 </a>
               </Link>
               ,&nbsp;
               <Link href='/study'>
                 <a onClick={() => setIsOpen(!isOpen)}>
-                  <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FS')}>FS</p>
+                  <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FS')}>
+                    FS
+                  </p>
                 </a>
               </Link>
               &nbsp;]
@@ -89,7 +88,8 @@ export default function Header() {
               </Link>
             </li>
 
-            <li className="p-4 font-header text-2xl cursor-pointer transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500" onClick={() => changeTheme()}>
+            <li onClick={() => changeTheme()}
+              className="p-4 font-header text-2xl cursor-pointer transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
               Toggle theme
             </li>
 
@@ -117,7 +117,9 @@ export default function Header() {
 
             <Link href='/add'>
               <a className="sm:px-10 md:px-20 lg:px-40">
-                <p className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">Add a flash card</p>
+                <p className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">
+                  Add a flash card
+                </p>
               </a>
             </Link>
 
@@ -125,19 +127,25 @@ export default function Header() {
               <p>Filter by [&nbsp;</p>
               <Link href='/study'>
                 <a>
-                  <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FE')}>FE</p>
+                  <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FE')}>
+                    FE
+                  </p>
                 </a>
               </Link>
               ,&nbsp;
               <Link href='/study'>
                 <a>
-                  <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('BE')}>BE</p>
+                  <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('BE')}>
+                    BE
+                  </p>
                 </a>
               </Link>
               ,&nbsp;
               <Link href='/study'>
                 <a>
-                  <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FS')}>FS</p>
+                  <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FS')}>
+                    FS
+                  </p>
                 </a>
               </Link>
               &nbsp;]

@@ -1,4 +1,4 @@
-import { createContext, useContext, ReactNode, useState, useEffect } from "react";
+import { createContext, useContext, ReactNode, useState, useEffect } from "react"
 import { CardType, PutObject } from '../types/index'
 import { getData } from '../utils/apiCalls'
 
@@ -22,16 +22,16 @@ const deckContextDefaultValues: deckContextType = {
   filterDeck: (stack) => {},
 }
 
-const DeckContext = createContext<deckContextType>(deckContextDefaultValues);
+const DeckContext = createContext<deckContextType>(deckContextDefaultValues)
 
 type Props = {
   children: ReactNode;
 }
 
 export function DeckProvider({ children }: Props) {
-  const [deck, setDeck] = useState<CardType[]>([]);
-  const [sortedDeck, setSorted] = useState<CardType[]>([]);
-  const [filter, setFilter] = useState<string>('FS');
+  const [deck, setDeck] = useState<CardType[]>([])
+  const [sortedDeck, setSorted] = useState<CardType[]>([])
+  const [filter, setFilter] = useState<string>('FS')
 
   const fetchDeck = async () => {
     try {
@@ -98,5 +98,5 @@ export function DeckProvider({ children }: Props) {
 }
 
 export function useDeck() {
-  return useContext(DeckContext);
+  return useContext(DeckContext)
 }

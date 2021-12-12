@@ -1,19 +1,19 @@
-import Head from 'next/head'
 import type { NextPage } from 'next'
-import { useState } from 'react';
-import { useDeck } from "../context/DeckContext";
-import { postData } from '../utils/apiCalls';
+import { useState } from 'react'
+import Head from 'next/head'
+import { useDeck } from "../context/DeckContext"
 import { useTheme } from '../context/ThemeContext'
+import { postData } from '../utils/apiCalls'
 import { CheckIcon, DocumentAddIcon } from '@heroicons/react/outline'
 
 const Add: NextPage = () => {
-  const [question, setQuestion] = useState<string>('');
-  const [answer, setAnswer] = useState<string>('');
-  const [stack, setStack] = useState<string>('');
-  const [categories, setCategories] = useState<string[]>([]);
-  const [category, setCategory] = useState<string>('');
-  const [formError, setFormError] = useState('');
-  const { addCard } = useDeck();
+  const [question, setQuestion] = useState<string>('')
+  const [answer, setAnswer] = useState<string>('')
+  const [stack, setStack] = useState<string>('')
+  const [categories, setCategories] = useState<string[]>([])
+  const [category, setCategory] = useState<string>('')
+  const [formError, setFormError] = useState('')
+  const { addCard } = useDeck()
   const { darkMode } = useTheme()
   let interfaceColor = darkMode ? "black" : "#A7F3D0"
 
@@ -77,11 +77,15 @@ const Add: NextPage = () => {
         <meta name="theme-color" content={interfaceColor} />
       </Head>
       
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl pt-8 text-center capitalize dark:text-blue-100">Create a new flash card</h2>
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl pt-8 text-center capitalize dark:text-blue-100">
+        Create a new flash card
+      </h2>
       <div className="flex justify-center">
         <form className="w-11/12 sm:w-7/12 md:w-6/12 lg:w-5/12 flex flex-col">
 
-          <label className="text-lg pt-4 md:pt-8" htmlFor="question">Question:</label>
+          <label className="text-lg pt-4 md:pt-8" htmlFor="question">
+            Question:
+          </label>
           <textarea
             className="w-full rounded-lg shadow-sm text-lg border-gray-300 focus:border-red-300 focus:ring focus:ring-red-300 focus:ring-opacity-50 dark:focus:border-green-200 dark:focus:ring-green-200 dark:text-gray-900"
             id="question"
@@ -128,7 +132,8 @@ const Add: NextPage = () => {
               placeholder="ex: HTML"
               onChange={event => setCategory(event.target.value)}
             />
-            <button onClick={(event) => addCategory(event)} className="flex items-center text-md md:text-lg rounded-full py-3 px-9 transition duration-500 ease-in-out bg-red-300 hover:bg-red-400 hover:scale-110 hover:shadow-2xl hover:text-blueGray-100 dark:bg-teal-200 dark:hover:bg-teal-300 dark:text-gray-900">
+            <button onClick={(event) => addCategory(event)}
+              className="flex items-center text-md md:text-lg rounded-full py-3 px-9 transition duration-500 ease-in-out bg-red-300 hover:bg-red-400 hover:scale-110 hover:shadow-2xl hover:text-blueGray-100 dark:bg-teal-200 dark:hover:bg-teal-300 dark:text-gray-900">
               <p>Add category</p>
               <CheckIcon className="h-6 w-6 ml-2"/>
             </button>
@@ -136,7 +141,8 @@ const Add: NextPage = () => {
           <p className="text-red-500 dark:text-pink-300">{formError}</p>
 
           <div className="flex justify-center py-6 md:py-12">
-            <button onClick={(event) => postFlashCard(event)} className="flex items-center text-lg md:text-xl rounded-full py-3 px-9 transition duration-500 ease-in-out bg-red-300 hover:bg-red-400 hover:scale-110 hover:shadow-2xl hover:text-blueGray-100 dark:bg-blue-200 dark:hover:bg-blue-300 dark:text-gray-900">
+            <button onClick={(event) => postFlashCard(event)}
+              className="flex items-center text-lg md:text-xl rounded-full py-3 px-9 transition duration-500 ease-in-out bg-red-300 hover:bg-red-400 hover:scale-110 hover:shadow-2xl hover:text-blueGray-100 dark:bg-blue-200 dark:hover:bg-blue-300 dark:text-gray-900">
               <p>Create card</p>
               <DocumentAddIcon className="h-6 w-6 ml-2"/>
             </button>

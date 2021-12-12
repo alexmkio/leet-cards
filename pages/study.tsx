@@ -1,10 +1,10 @@
 import Head from 'next/head'
-import { useDeck } from "../context/DeckContext";
+import { useDeck } from "../context/DeckContext"
 import { useTheme } from '../context/ThemeContext'
 import Card from '../components/Card'
 
 export default function Test() {
-  const { sortedDeck } = useDeck();
+  const { sortedDeck } = useDeck()
   const { darkMode } = useTheme()
   let interfaceColor = darkMode ? "black" : "#F9A8D4"
   
