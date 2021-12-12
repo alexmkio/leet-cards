@@ -60,7 +60,7 @@ export default function Card({ card }: Props) {
         >
           <dl className="flex flex-col items-center">
             <dt className="px-4 pb-1 border-b border-gray-800 dark:text-green-200 dark:border-green-200">Answer:</dt>
-            <dd className="pt-4 text-center">{answer}</dd>
+            <dd className="py-4 text-center">{answer}</dd>
           </dl>
 
           <div className="flex justify-around">
