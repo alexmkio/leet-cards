@@ -20,8 +20,8 @@ export function ThemeProvider({ children }: Props) {
   const [darkMode, setMode] = useState<boolean>(false);
 
   useEffect(() => {
-    let parsed = localStorage.leetCardsDarkTheme ? JSON.parse(localStorage.leetCardsDarkTheme) : null
-    if (parsed || (parsed && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    let parsed = ('leetCardsDarkTheme' in localStorage) ? JSON.parse(localStorage.leetCardsDarkTheme) : null
+    if (parsed || (!('leetCardsDarkTheme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark')
       setMode(true)
     }
