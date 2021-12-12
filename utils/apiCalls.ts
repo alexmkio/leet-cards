@@ -18,7 +18,7 @@ export const getData = async (path: String) => {
   const opts: RequestInit = {
     method: 'GET',
     headers
-  };
+  }
   let response = await fetch(url, opts)
   return checkForError(response)
 }
@@ -29,7 +29,7 @@ export const postData = async (postObject: PostObject) => {
     method: 'POST',
     body: JSON.stringify(postObject),
     headers: fullHeaders
-  };
+  }
   let response = await fetch(url, opts)
   return checkForError(response)
 }
@@ -50,7 +50,7 @@ export const deleteData = async (id: Number) => {
   const opts: RequestInit = {
     method: 'DELETE',
     headers: fullHeaders
-  };
+  }
   let response = await fetch(url, opts)
   return checkForError(response)
 }

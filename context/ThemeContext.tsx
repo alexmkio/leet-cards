@@ -1,4 +1,4 @@
-import { createContext, useContext, ReactNode, useState, useEffect } from "react";
+import { createContext, useContext, ReactNode, useState, useEffect } from "react"
 
 type themeContextType = {
   darkMode: boolean;
@@ -10,14 +10,14 @@ const themeContextDefaultValues: themeContextType = {
   changeTheme: () => {},
 }
 
-const ThemeContext = createContext<themeContextType>(themeContextDefaultValues);
+const ThemeContext = createContext<themeContextType>(themeContextDefaultValues)
 
 type Props = {
   children: ReactNode;
 }
 
 export function ThemeProvider({ children }: Props) {
-  const [darkMode, setMode] = useState<boolean>(false);
+  const [darkMode, setMode] = useState<boolean>(false)
 
   useEffect(() => {
     let parsed = ('leetCardsDarkTheme' in localStorage) ? JSON.parse(localStorage.leetCardsDarkTheme) : null
@@ -46,5 +46,5 @@ export function ThemeProvider({ children }: Props) {
 }
 
 export function useTheme() {
-  return useContext(ThemeContext);
+  return useContext(ThemeContext)
 } 
