@@ -10,7 +10,7 @@ export default function Layout({ children }: Props) {
   return (
     <div className="flex flex-col h-screen dark:text-gray-50">
       <Header />
-      <main className="flex-grow bg-gray-200 dark:bg-gray-900">
+      <main className="flex-grow pt-16 bg-gray-200 dark:bg-gray-900">
         { children }
       </main>
       <Footer />

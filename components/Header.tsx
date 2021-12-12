@@ -24,7 +24,7 @@ export default function Header() {
       </div>
     : <Link href='/'>
         <a>
-          <div className="flex items-center pb-2 md:pb-0 transition ease-in-out duration-300 hover:text-red-500 dark:hover:text-green-300">
+          <div className="flex items-center transition ease-in-out duration-300 hover:text-red-500 dark:hover:text-green-300">
             {appLogo}
             <h1 className="font-header text-4xl md:text-5xl pl-2 md:pl-4">Leet Code</h1>
           </div>
@@ -36,11 +36,12 @@ export default function Header() {
     : <SunIcon className="h-12 w-12 transition duration-300 ease-in-out hover:text-blue-600"/>
 
   return (
-    <>
-      <header className="block fixed h-auto z-20 w-full top-0 left-0 p-0 md:p-2 px-6 sm:px-10 md:px-20 lg:px-40 bg-gray-50 shadow-md dark:bg-gray-700">
-        <nav className="flex justify-between items-center">
+    <header>
+      <nav className="fixed top-0 left-0 w-full bg-gray-50 z-10 shadow-md flex items-center justify-between px-6 sm:px-10 md:px-20 lg:px-40 dark:bg-gray-700">
+
+        <div className="relative inline-block sm:hidden">
           <button onClick={() => setIsOpen(!isOpen)}
-            className="sm:hidden flex flex-col h-12 w-12 justify-center items-center group"
+            className="sm:hidden flex flex-col justify-center items-center group"
           >
             <div className={`${genericHamburgerLine} ${isOpen
               ? "rotate-45 translate-y-3 group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
@@ -54,100 +55,97 @@ export default function Header() {
               : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
             }`}/>
           </button>
+          <ul className={`${isOpen
+              ? "top-12 -left-6 absolute z-10 translate-x-0 w-80 h-screen bg-gray-50 divide-y divide-dashed divide-green-300 transition ease-in-out duration-1000 dark:bg-gray-700"
+              : "top-12 -left-6 absolute z-10 -translate-x-96 w-80 h-screen bg-gray-50 transition ease-in-out duration-1000 dark-bg-gray-700"
+            }`}>
+            <li className="flex mt-4 p-4 font-header text-2xl">
+              <p>Filter by [&nbsp;</p>
+              <Link href='/study'>
+                <a>
+                  <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FE')}>FE</p>
+                </a>
+              </Link>
+              ,&nbsp;
+              <Link href='/study'>
+                <a>
+                  <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('BE')}>BE</p>
+                </a>
+              </Link>
+              ,&nbsp;
+              <Link href='/study'>
+                <a>
+                  <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FS')}>FS</p>
+                </a>
+              </Link>
+              &nbsp;]
+            </li>
 
-          {logo}
+            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
+              <Link href='/add'>
+                <a>
+                  <p>Add a flash card</p>
+                </a>
+              </Link>
+            </li>
 
+            <li className="p-4 font-header text-2xl cursor-pointer transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500" onClick={() => changeTheme()}>
+              Toggle theme
+            </li>
+
+            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
+              <a href="https://github.com/alexmkio/leet-cards" target="_blank" rel="noreferrer">
+                The GitHub repo
+              </a>
+            </li>
+
+            <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
+              <a href="https://www.linkedin.com/in/alexkio/" target="_blank" rel="noreferrer" className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-200">
+                The author&apos;s LinkedIn
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {logo}
+
+        <div className="hidden sm:block">
           <div className="flex justify-between items-center">
-            <div className="hidden sm:block cursor-pointer" onClick={() => changeTheme()}>
+            <div className="cursor-pointer" onClick={() => changeTheme()}>
               {changeThemeIcon}
             </div>
 
             <Link href='/add'>
-              <a className="hidden sm:block sm:px-10 md:px-20 lg:px-40">
+              <a className="sm:px-10 md:px-20 lg:px-40">
                 <p className="font-header text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300">Add a flash card</p>
               </a>
             </Link>
 
-            <div className="hidden sm:block">
-              <div className="flex font-header text-2xl md:text-3xl">
-                <p>Filter by [&nbsp;</p>
-                <Link href='/study'>
-                  <a>
-                    <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FE')}>FE</p>
-                  </a>
-                </Link>
-                ,&nbsp;
-                <Link href='/study'>
-                  <a>
-                    <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('BE')}>BE</p>
-                  </a>
-                </Link>
-                ,&nbsp;
-                <Link href='/study'>
-                  <a>
-                    <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FS')}>FS</p>
-                  </a>
-                </Link>
-                &nbsp;]
-              </div>
+            <div className="flex font-header text-2xl md:text-3xl">
+              <p>Filter by [&nbsp;</p>
+              <Link href='/study'>
+                <a>
+                  <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FE')}>FE</p>
+                </a>
+              </Link>
+              ,&nbsp;
+              <Link href='/study'>
+                <a>
+                  <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('BE')}>BE</p>
+                </a>
+              </Link>
+              ,&nbsp;
+              <Link href='/study'>
+                <a>
+                  <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FS')}>FS</p>
+                </a>
+              </Link>
+              &nbsp;]
             </div>
           </div>
+        </div>
 
-        </nav>
-      </header>
-
-      <nav className="z-10">
-        <ul className={`${isOpen
-            ? "shadow-xl inline fixed visable left-0 top-0 translate-x-0 w-9/12 h-full py-20 bg-gray-50 divide-y divide-dashed divide-green-300 transition ease-in-out duration-1000 dark:bg-gray-700"
-            : "shadow-xl inline fixed invisible -translate-x-full w-9/12 h-full py-20 bg-gray-50 transition ease-in-out duration-1000 dark-bg-gray-700"
-          }`}>
-          <li className="flex p-4 font-header text-2xl">
-            <p>Filter by [&nbsp;</p>
-            <Link href='/study'>
-              <a>
-                <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FE')}>FE</p>
-              </a>
-            </Link>
-            ,&nbsp;
-            <Link href='/study'>
-              <a>
-                <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('BE')}>BE</p>
-              </a>
-            </Link>
-            ,&nbsp;
-            <Link href='/study'>
-              <a>
-                <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FS')}>FS</p>
-              </a>
-            </Link>
-            &nbsp;]
-          </li>
-
-          <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
-            <Link href='/add'>
-              <a>
-                <p>Add a flash card</p>
-              </a>
-            </Link>
-          </li>
-
-          <li className="p-4 font-header text-2xl cursor-pointer transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500" onClick={() => changeTheme()}>
-            Toggle theme
-          </li>
-
-          <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
-            <a href="https://github.com/alexmkio/leet-cards" target="_blank" rel="noreferrer">
-              The GitHub repo
-            </a>
-          </li>
-
-          <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
-            <a href="https://www.linkedin.com/in/alexkio/" target="_blank" rel="noreferrer" className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-200">
-              The author&apos;s LinkedIn
-            </a>
-          </li>
-        </ul>
       </nav>
-    </>
+    </header>
   )
 }
