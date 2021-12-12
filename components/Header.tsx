@@ -1,3 +1,4 @@
+import type { NextPage } from 'next'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
@@ -5,7 +6,7 @@ import { useDeck } from "../context/DeckContext"
 import { useTheme } from '../context/ThemeContext'
 import { MoonIcon, SunIcon } from '@heroicons/react/outline'
 
-export default function Header() {
+const Header: NextPage = () => {
   const [isOpen, setIsOpen] = useState(false)
   const genericHamburgerLine = `h-1 w-8 my-1 rounded-full bg-gray-900 transition ease-in-out duration-300`
   const router = useRouter()
@@ -157,3 +158,5 @@ export default function Header() {
     </header>
   )
 }
+
+export default Header
