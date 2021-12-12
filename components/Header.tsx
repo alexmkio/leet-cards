@@ -62,19 +62,19 @@ export default function Header() {
             <li className="flex mt-4 p-4 font-header text-2xl">
               <p>Filter by [&nbsp;</p>
               <Link href='/study'>
-                <a>
+                <a onClick={() => setIsOpen(!isOpen)}>
                   <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FE')}>FE</p>
                 </a>
               </Link>
               ,&nbsp;
               <Link href='/study'>
-                <a>
+                <a onClick={() => setIsOpen(!isOpen)}>
                   <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('BE')}>BE</p>
                 </a>
               </Link>
               ,&nbsp;
               <Link href='/study'>
-                <a>
+                <a onClick={() => setIsOpen(!isOpen)}>
                   <p className="transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 cursor-pointer" onClick={() => filterDeck('FS')}>FS</p>
                 </a>
               </Link>
@@ -83,7 +83,7 @@ export default function Header() {
 
             <li className="p-4 font-header text-2xl transition duration-300 ease-in-out hover:text-red-500 dark:hover:text-green-300 hover:bg-gray-100 dark:hover:bg-gray-500">
               <Link href='/add'>
-                <a>
+                <a onClick={() => setIsOpen(!isOpen)}>
                   <p>Add a flash card</p>
                 </a>
               </Link>
