@@ -33,15 +33,15 @@ const Header: NextPage = () => {
       </Link>
 
   let changeThemeIcon = darkMode
-    ? <MoonIcon className="h-12 w-12 transition duration-300 ease-in-out hover:text-yellow-200"/>
-    : <SunIcon className="h-12 w-12 transition duration-300 ease-in-out hover:text-blue-600"/>
+    ? <MoonIcon aria-label="Change to dark theme" className="h-12 w-12 transition duration-300 ease-in-out hover:text-yellow-200"/>
+    : <SunIcon aria-label="Change to light theme" className="h-12 w-12 transition duration-300 ease-in-out hover:text-blue-600"/>
 
   return (
     <header>
       <nav className="fixed top-0 left-0 w-full bg-gray-50 z-10 shadow-md flex items-center justify-between px-6 sm:px-10 md:px-20 lg:px-40 dark:bg-gray-700">
 
         <div className="relative inline-block sm:hidden">
-          <button onClick={() => setIsOpen(!isOpen)} className="sm:hidden flex flex-col justify-center items-center group">
+          <button aria-label="Navigation Menu" onClick={() => setIsOpen(!isOpen)} className="sm:hidden flex flex-col justify-center items-center group">
             <div className={`${genericHamburgerLine} ${isOpen
               ? "rotate-45 translate-y-3 group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"
               : "group-hover:bg-red-500 dark:bg-gray-50 dark:group-hover:bg-green-300"}`}/>
