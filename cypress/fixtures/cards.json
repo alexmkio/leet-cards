@@ -19,8 +19,8 @@
   },
   {
     "id": 3,
-    "question": "Is an Florida stupid?",
-    "answer": "YESYESYES",
+    "question": "Is Florida stupid?",
+    "answer": "YES<br>YES<br>YES",
     "side": "FE",
     "categories": [
       "HTML"
