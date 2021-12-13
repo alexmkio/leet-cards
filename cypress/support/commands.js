@@ -1,6 +1,4 @@
-const host = process.env.NEXT_PUBLIC_VERCEL_ENV
-  ? "https://leet-cards.herokuapp.com/"
-  : "http://localhost:6565/"
+const host = "https://leet-cards.herokuapp.com/"
 
 Cypress.Commands.add('loadHome', () => {
   cy.intercept("GET", `${host}cards`, {
