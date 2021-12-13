@@ -1,5 +1,7 @@
 # Leet Cards, the API
-Leet Code is an application designed to help software engineers study for common technical interview questions.
+![GitHub Actions Workflow](https://github.com/alexmkio/msp-challenge/actions/workflows/testing.yml/badge.svg)
+
+Leet Cards is an application designed to help software engineers study for common technical interview questions.
 
 The application is deployed [here](https://leet-cards.vercel.app/)
 
