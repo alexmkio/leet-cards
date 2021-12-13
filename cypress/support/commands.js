@@ -41,3 +41,15 @@ Cypress.Commands.add('loadEditPage', () => {
     })
     .visit("http://localhost:3000/edit/1")
 })
+
+Cypress.Commands.add('loadStudyPage', () => {
+  cy.intercept("GET", `${host}cards`, {
+    statusCode: 200,
+    fixture: "cards.json",
+  })
+  .intercept("DELETE", `${host}cards/1`, {
+    statusCode: 200,
+    body: "The card has been deleted!",
+  })
+    .visit("http://localhost:3000/study")
+})
