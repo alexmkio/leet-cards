@@ -78,24 +78,24 @@ describe('Landing user flows', () => {
   it.skip("Those links actually filter the cards", () => {
     cy.get('div[class="cursor-pointer"]').parent().children().eq(2).children('a')
       .eq(0).click().wait(10)
-      .get('article').should('have.length', 2)
+    cy.get('article').should('have.length', 2)
     cy.get('article').eq(0).contains('Is your name Alex?')
     cy.get('article').eq(1).contains('Is Florida stupid?')
     cy.get('dd').contains('Is Yoda a dog?').should('not.exist')
 
     cy.get('div[class="cursor-pointer"]').parent().children().eq(2).children('a')
       .eq(1).click().wait(10)
-      .get('article').should('have.length', 1)
+    cy.get('article').should('have.length', 1)
     cy.get('article').eq(0).contains('Is Yoda a dog?')
     cy.get('dd').contains('Is your name Alex?').should('not.exist')
     cy.get('dd').contains('Is Florida stupid?').should('not.exist')
 
     cy.get('div[class="cursor-pointer"]').parent().children().eq(2).children('a')
       .eq(2).click().wait(10)
-      .get('article').should('have.length', 3)
+    cy.get('article').should('have.length', 3)
     cy.get('article').eq(0).contains('Is your name Alex?')
-    cy.get('article').eq(1).contains('Is Florida stupid?')
-    cy.get('article').eq(2).contains('Is Yoda a dog?')
+    cy.get('article').eq(1).contains('Is Yoda a dog?')
+    cy.get('article').eq(2).contains('Is Florida stupid?')
   })
 
   it("There is a body with a sub-header", () => {
