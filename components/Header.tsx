@@ -21,13 +21,13 @@ const Header: NextPage = () => {
   let logo = (router.pathname === "/")
     ? <div className="flex items-center">
         {appLogo}
-        <h1 className="font-header text-4xl md:text-5xl pl-2 md:pl-4">Leet Code</h1>
+        <h1 className="font-header text-4xl md:text-5xl pl-2 md:pl-4">Leet Cards</h1>
       </div>
     : <Link href='/'>
         <a>
           <div className="flex items-center transition ease-in-out duration-300 hover:text-red-500 dark:hover:text-green-300">
             {appLogo}
-            <h1 className="font-header text-4xl md:text-5xl pl-2 md:pl-4">Leet Code</h1>
+            <h1 className="font-header text-4xl md:text-5xl pl-2 md:pl-4">Leet Cards</h1>
           </div>
         </a>
       </Link>
