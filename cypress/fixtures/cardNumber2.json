@@ -1,0 +1,9 @@
+{
+  "id": 2,
+  "question": "Is Yoda a dog?",
+  "answer": "No",
+  "side": "BE",
+  "categories": [
+    "CSS"
+  ]
+}

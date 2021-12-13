@@ -27,7 +27,7 @@ const Add: NextPage = () => {
   })
 
   const removeCategory = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
+    event.preventDefault()
     let currentCategories = categories
     let ind = categories.indexOf(event.target.value)
     currentCategories.splice(ind, 1)
@@ -35,7 +35,7 @@ const Add: NextPage = () => {
   }
 
   const addCategory = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    event.preventDefault();
+    event.preventDefault()
     setFormError('')
     if (!category) {
       setFormError('Sorry, add a category first!')
@@ -46,7 +46,7 @@ const Add: NextPage = () => {
   }
 
   const postFlashCard = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    event.preventDefault();
+    event.preventDefault()
     if (question && answer && stack && categories.length) {
       let response = await postData({
         question: question,
@@ -65,7 +65,7 @@ const Add: NextPage = () => {
       setFormError('')
     } else {
       // console.log(event.cancelable)
-      setFormError('Sorry, add a category first!')
+      setFormError('Sorry, fill out the form completely first!')
     }
   }
 

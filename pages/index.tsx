@@ -19,10 +19,10 @@ const Landing: NextPage = () => {
       <div className="flex justify-center px-4 py-8">
         <article className="w-11/12 sm:w-9/12 md:w-8/12 lg:w-7/12 flex flex-col">
           <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-center dark:text-blue-100">
-            Welcome to Leet Code!
+            Welcome to Leet Cards!
           </h2>
           <p className="text-lg pt-8">
-            Leet Code is an application designed to help software engineers study for common technical interview questions.
+            Leet Cards is an application designed to help software engineers study for common technical interview questions.
           </p>
           <p className="text-lg pt-8">
             After entering, you will be given a deck of flash cards that have questions on a variety of topics. Clicking on a flash card will cause it to flip over showing you the answer to the question.
