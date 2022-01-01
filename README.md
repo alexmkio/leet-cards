@@ -10,6 +10,14 @@ The repo for the API is [here](https://github.com/alexmkio/leet-cards-api/)
 ## Technologies Used
 This application is written in [TypeScript](https://www.typescriptlang.org/) utilizing the [Next.js](https://nextjs.org/) framework. The [React Context API](https://reactjs.org/docs/context.html) is providing global state management. [Cypress](https://www.cypress.io/) is used for end-to-end testing and a [GitHub Action](https://github.com/features/actions) is used for CI/CD. [Tailwind CSS](https://tailwindcss.com/) is utilized for styling.
 
+## Features
+
+![View of the homepage, hamburger menu, and filter functionality on a mobile device](./readme/mobile.gif)
+* View of the homepage, hamburger menu, and filter functionality on a mobile device
+
+![Switching between light and dark modes on a laptop](./readme/laptop.gif)
+* Switching between light and dark modes on a laptop
+
 
 ## Install
 1. Clone down this repository `git clone https://github.com/alexmkio/leet-cards`
